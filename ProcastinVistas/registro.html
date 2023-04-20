@@ -2,26 +2,29 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="./registro.css">
     </head>
     <body>
         <header class="navbar">
             <img class="navbar-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Mr._Smiley_Face.svg/1024px-Mr._Smiley_Face.svg.png" width="15px" height="15px">
-            <label>Procastin</label>
-            <input class="navbar-button" type="button" value="Login">
+            <label class="titulo">Procastin</label>
             <input class="navbar-button" type="button" value="Registrar">
+            <input class="navbar-button" type="button" value="Login">
         </header>
         <form class="form-registro">
-            <h3>Ingresa los datos para crear una cuenta</h3>
-            <label class="registro-texto" for="usuario">Username</label><br>
+            <h3 class="ingresar-texto">Ingresa los datos para crear una cuenta</h3><br>
+            <label class="registro-texto" for="usuario">Username</label>
             <input class="registro-info" type="text" id="usuario"><br><br>
-            <label class="registro-texto" for="password">Password</label><br>
+            <label class="registro-texto" for="password">Password</label>
             <input class="registro-info" type="password" id="password"><br><br>
-            <label class="registro-texto" for="correo">Correo</label><br>
+            <label class="registro-texto" for="correo">Correo</label>
             <input class="registro-info" type="email" id="correo"><br><br><br>
 
             <input class="registro-fin" type="submit" value="Submit"><br><br>
-            <input class="registro-terminos" type="checkbox" id="terminos">
-            <label class="link-terminos" for="terminos"><a href="">Acepta los terminos y condiciones</a></label>
+            <div>
+                <input class="registro-terminos" type="checkbox" id="terminos">
+                <label class="link-terminos" for="terminos"><a href="">Acepta los terminos y condiciones</a></label>
+            </div>
         </form>
     </body>
 </html>
