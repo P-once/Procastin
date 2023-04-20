@@ -60,6 +60,13 @@ body {
     text-align: center;
 }
 
+.div-ingresar > * {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5vh;
+}
+
 
 .registro-info {
     border-style: hidden; 
