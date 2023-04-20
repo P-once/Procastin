@@ -64,7 +64,11 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 5vh;
+    margin-bottom: 3vh;
+}
+
+.ingresar-texto {
+    font-size: 30px;
 }
 
 
