@@ -2,91 +2,22 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <style>
-            body {
-                background-color: rgb(230, 227, 227);
-            }
-            .navbar {
-                font-size: large;
-                padding-top: 20px;
-                padding-bottom: 20px;
-                background-color: lightgray;
-                position: absolute;
-                top: 0px;
-                left: 0px;
-                width: 100%;
-            }
-            .navbar-button {
-                font-size: large;
-                position: relative;
-                float: right;
-                border: none;
-                background: none;
-                margin-right: 50px;
-            }
-            .navbar-button:hover {
-                cursor: pointer;
-            }
-            .navbar-img {
-                padding-left: 10px;
-            }
-
-            .bienvenido-texto {
-                position: relative;
-                top: 50px;
-                left: 15px;
-                font-size: 25px;
-            }
-            .ingresar-texto {
-                position: relative;
-                float: right;
-                word-wrap: break-word;
-                font-size: 30px;
-            }
-            .ingresar {
-                position: relative;
-                float: right;
-                right: 105px;
-                top: -501px;
-                align-items: center;
-                text-align: center;
-            }
-            .registro-info {  
-                font-size: 30px;
-                border: none;
-                border-bottom: 5px solid black;
-                width: 500px;
-                background: none;
-                margin-bottom: 20px;
-            }
-            .registro-texto {
-                font-size: 30px;
-            }
-            .registro-fin {
-                font-size: 15px;
-                border-radius: 30px;
-                padding: 15px;
-                background-color: white;
-                border-color: aquamarine;
-                color: aquamarine;
-            }
-            .form-registro {
-                background-color: white;
-            }
-        </style>
+        <link rel="stylesheet" href="./bienvenido.css">
     </head>
     <body>
         <header class="navbar">
             <img class="navbar-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Mr._Smiley_Face.svg/1024px-Mr._Smiley_Face.svg.png" width="15px" height="15px">
-            <label>Procastin</label>
+            <label class="titulo">Procastin</label>
             <input class="navbar-button" type="button" value="Registrar">
             <input class="navbar-button" type="button" value="Login">
         </header>
         <form class="form-registro">
-            <h3 class="bienvenido-texto">Bienvenido a Procastin</h3>
-            <img class="bienvenido-img" src="https://www.incimages.com/uploaded_files/image/1920x1080/getty_623425276_351576.jpg" width="600px" height="600px">
-            <h4 class="ingresar-texto">Ingresa tu usuario y constraseña para poder ingresar</h4>
-            <div class="ingresar">
+            <div class="div-img">
+                <h3 class="bienvenido-texto">Bienvenido a Procastin</h3>
+                <img class="bienvenido-img" src="https://www.incimages.com/uploaded_files/image/1920x1080/getty_623425276_351576.jpg">
+            </div>
+            <div class="div-ingresar">
+                <h4 class="ingresar-texto">Ingresa tu usuario y constraseña para poder ingresar</h4>
                 <label class="registro-texto" for="usuario">Username</label><br>
                 <input class="registro-info" type="text" id="usuario"><br><br>
                 <label class="registro-texto" for="password">Password</label><br>
