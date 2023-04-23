@@ -15,7 +15,7 @@ header
     left: 0;
     width: 100%;
     padding: 15px 20%;
-    background: rgb(0, 255, 0);
+    background: lightgray;
     display: flex;
     justify-content: space-between;
     align-items:end;

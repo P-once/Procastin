@@ -2,18 +2,20 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="./bienvenido.css">
+        <link rel="stylesheet" href="css/bienvenido.css">
     </head>
     <body>
         <header class="navbar">
             <img class="navbar-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Mr._Smiley_Face.svg/1024px-Mr._Smiley_Face.svg.png" width="15px" height="15px">
             <label class="titulo">Procastin</label>
-            <input class="navbar-button" type="button" value="Registrar">
-            <input class="navbar-button" type="button" value="Login">
+            <div class="a">
+                <a href="registro.html">Registrar</a>
+            <a href="bienvenido.html">Login</a>
+            </div>
         </header>
         <form class="form-registro">
             <div class="div-img">
-                <h3 class="bienvenido-texto">Bienvenido a Procastin</h3>
+                <h3 class="bienvenido-texto">Bienvenido a Procastin </h3>
                 <img class="bienvenido-img" src="https://www.incimages.com/uploaded_files/image/1920x1080/getty_623425276_351576.jpg">
             </div>
             <div class="div-ingresar">
@@ -22,7 +24,8 @@
                 <input class="registro-info" type="text" id="usuario"><br><br>
                 <label class="registro-texto" for="password">Password</label><br>
                 <input class="registro-info" type="password" id="password"><br><br>
-                <input class="registro-fin" type="submit" value="Submit"><br><br>
+                <!--corregir boton solo para desmostracion navegacion entre ventanas-->
+                <a href="PerfilUsuario.html"><input class="registro-fin" type="submit" value="Submit"><br><br></a>
                 <a href="">¿Olvidaste tu contraseña?</a>
             </div>
         </form>

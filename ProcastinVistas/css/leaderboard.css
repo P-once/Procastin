@@ -9,7 +9,7 @@
 }
 body
 {
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(143, 141, 141);
 }
 header
 {
@@ -18,7 +18,7 @@ header
     left: 0;
     width: 100%;
     padding: 15px 20%;
-    background: rgb(0, 255, 0);
+    background: lightgray;
     display: flex;
     justify-content: space-between;
     align-items:end;
