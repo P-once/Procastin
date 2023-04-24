@@ -24,9 +24,8 @@ bloque.forEach(function(item){
 })
 letra.forEach(function(item){
     item.addEventListener('mouseover',function(){
-        item.style.backgroundColor=item.dataset.color || "purple";
+        item.style.backgroundColor=item.dataset.color;
     });
-    item.addEventListener('mouseout',function(){
-        item.style.backgroundColor="beige";})
+  
 
 })
