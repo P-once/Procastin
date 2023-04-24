@@ -1,5 +1,7 @@
 const boton = document.querySelector('button');
 const bloque = document.querySelectorAll('section');
+const letra = document.querySelectorAll('p');
+
 //CLICK EVENT
 boton.addEventListener('click',function()
 {
@@ -18,5 +20,13 @@ bloque.forEach(function(item){
     });
     item.addEventListener('mouseout',function(){
         item.style.backgroundColor="gray";})
+
+})
+letra.forEach(function(item){
+    item.addEventListener('mouseover',function(){
+        item.style.backgroundColor=item.dataset.color || "purple";
+    });
+    item.addEventListener('mouseout',function(){
+        item.style.backgroundColor="beige";})
 
 })
