@@ -72,9 +72,9 @@ function seSoltoUnaTecla(event)
     console.log(event)
 }
 
-
+//Evento onload
 document.getElementById("pinguin").addEventListener("load", cargada);
 
 function cargada() {
-  alert("Happy feet!);
+  alert("Happy feet!");
 }
