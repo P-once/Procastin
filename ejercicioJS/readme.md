@@ -9,6 +9,19 @@
 
 ![image](https://user-images.githubusercontent.com/104939556/233910137-9cd64609-e063-4b1d-aa41-304954851ee8.png)
 
+<h3>Otros Ejemplos</h3>
+<img width="373" alt="image" src="https://user-images.githubusercontent.com/93165242/234445088-fd21a5c3-292c-4638-a0fb-1b849dc92463.png">
+
+<p>Primer boton</p>
+<img width="68" alt="image" src="https://user-images.githubusercontent.com/93165242/234445301-860d5b43-69a8-4074-a641-237d34db6097.png">
+
+<img width="371" alt="image" src="https://user-images.githubusercontent.com/93165242/234445375-a78bf5bc-51eb-464e-9eb7-f69fa097e14c.png">
+
+<p>Segundo boton</p>
+<img width="76" alt="image" src="https://user-images.githubusercontent.com/93165242/234445421-6f838b55-de0b-4df9-9dba-de74cd558b83.png">
+
+<img width="374" alt="image" src="https://user-images.githubusercontent.com/93165242/234445495-602196e5-5ed1-4904-9a27-bac3c99c9146.png">
+
 
 <h2>Mause Over y Mause Out</h2>
 <p>Con este evento se puden programar distintas acciones siempre y cuando se cumpla la condicion que es pasar el mause sobre un sitio conciso<br>Aqui podemos ver como carga la pagina en donde aun no ocurre ningun evento</p>
