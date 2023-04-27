@@ -26,13 +26,12 @@ header
     position: absolute;
     top: 100px;
     left: 100px;
-    background-color: beige; 
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 .seleccion > * {
-    margin: 0 100px;
+    margin: 20px 100px;
 }
 
 .boton {
@@ -44,6 +43,11 @@ header
 .nuevo-proyecto {
     font-size: 100px;
     text-align: center;
+    user-select: none;
+}
+
+.nuevo-proyecto:hover {
+    background-color: rgb(173, 173, 171);
 }
 
 .proyecto {
@@ -69,4 +73,10 @@ header
     
     padding: 10px;
     font-size: 20px;
+}
+
+.proyecto-boton {
+    width: 200px;
+    height: 140px;
+    background-color: aquamarine;
 }
