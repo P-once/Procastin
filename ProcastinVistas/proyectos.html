@@ -39,8 +39,10 @@
         <span class="close">Cancel</span>
         <p>Some text in the Modal..</p>
         <form id="form1">
-            <input type="text" id="titulo-tarea" class="tarea-info" required>
-            <input type="text" id="descripcion-tarea" class="tarea-info">
+            <label class="texto-info" for="titulo-tarea">Titulo:</label>
+            <input type="text" id="titulo-tarea" class="tarea-info" required><br>
+            <label class="texto-info" for="descripcion-tarea">Descripcion:</label>
+            <input type="text" id="descripcion-tarea" class="tarea-info" placeholder="(opcional)"><br>
             <button form="form1" type="submit" class="crear-proyecto">Crear</button>
         </form>
     </div>
