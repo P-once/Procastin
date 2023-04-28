@@ -17,37 +17,43 @@
             
         </form>
     </Header>
+    <!-- Div de actividades -->
     <div id="items-seleccion" class="seleccion">
+
+        <!-- "Boton" de nuevas actividades -->
         <div class="boton nuevo-proyecto">
             <p>+</p>
         </div>
+
+        <!-- Actividad ejemplo -->
         <div class="boton proyecto">
-            <div class="titulo">
+            <div class="titulo defaultT">
                 <p>Titulo tarea</p>
             </div>
-            <div class="descripcion">
+            <div class="descripcion defaultD">
                 <p>Descripcion de la actividad</p>
             </div>
         </div>
     </div>
 
-    <!-- The Modal -->
+    <!-- Modal -->
     <div id="myModal" class="modal">
 
-    <!-- Modal content -->
-    <div class="modal-content">
-        <span class="close">Cancel</span>
-        <p>Some text in the Modal..</p>
-        <form id="form1">
-            <label class="texto-info" for="titulo-tarea">Titulo:</label>
-            <input type="text" id="titulo-tarea" class="tarea-info" required><br>
-            <label class="texto-info" for="descripcion-tarea">Descripcion:</label>
-            <input type="text" id="descripcion-tarea" class="tarea-info" placeholder="(opcional)"><br>
-            <button form="form1" type="submit" class="crear-proyecto">Crear</button>
-        </form>
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">Cancel</span>
+            <h3>Ingresar informacion sobre la nueva actividad</h3>
+            <form id="form-modal">
+                <label class="texto-info" for="titulo-tarea">Actividad</label>
+                <input type="text" id="titulo-tarea" class="tarea-info" required placeholder="Titulo:"><br>
+                <textarea class="tarea-info" id="descripcion-tarea" placeholder="Descripcion: (Opcional)"></textarea><br>
+                <input type="radio" name="color" class="color c1" value="blueRed">
+                <input type="radio" name="color" class="color c2" value="orangePurple">
+                <button form="form1" type="submit" class="crear-proyecto">Crear</button>
+            </form>
+        </div>
+    
     </div>
-  
-  </div>
 
     <script src="js/proyectos.js"></script>
 </body>

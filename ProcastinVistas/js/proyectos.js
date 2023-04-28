@@ -7,6 +7,7 @@ var btn = document.querySelector('.nuevo-proyecto');
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
+
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
   modal.style.display = "block";
@@ -16,6 +17,7 @@ btn.onclick = function() {
 span.onclick = function() {
     document.getElementById('titulo-tarea').value = "";
     document.getElementById('descripcion-tarea').value = "";
+    clearRadioButtons();
     modal.style.display = "none";
 }
 
@@ -24,6 +26,7 @@ window.onclick = function(event) {
   if (event.target == modal) {
     document.getElementById('titulo-tarea').value = "";
     document.getElementById('descripcion-tarea').value = "";
+    clearRadioButtons();
     modal.style.display = "none";
   }
 }
@@ -41,7 +44,6 @@ boton.addEventListener('click', function()
     divButton.name = "div-name";
 
     const divTitle = document.createElement("DIV");
-    divTitle.setAttribute("class", "titulo");
     divTitle.name = "div-name";
 
     const pTitle = document.createElement("P");
@@ -49,7 +51,6 @@ boton.addEventListener('click', function()
     pTitle.name = "p-name";
 
     const divDescripcion = document.createElement("DIV");
-    divDescripcion.setAttribute("class", "descripcion");
     divDescripcion.name = "div-name";
 
     const pDescripcion = document.createElement("P");
@@ -62,7 +63,37 @@ boton.addEventListener('click', function()
     divTitle.appendChild(pTitle);
     divDescripcion.appendChild(pDescripcion);
 
+    let color;
+    try {
+      color = document.querySelector('input[name="color"]:checked').value
+    }
+    catch {
+      color = "default"
+    }
+    
+    switch(color) {
+      case "blueRed":
+        divTitle.setAttribute("class", "titulo blue");
+        divDescripcion.setAttribute("class", "descripcion red");
+        break;
+      case "orangePurple":
+        divTitle.setAttribute("class", "titulo orange");
+        divDescripcion.setAttribute("class", "descripcion purple");
+        break;
+      default:
+        divTitle.setAttribute("class", "titulo defaultT");
+        divDescripcion.setAttribute("class", "descripcion defaultD");
+    }
+
     document.getElementById('titulo-tarea').value = "";
     document.getElementById('descripcion-tarea').value = "";
+    clearRadioButtons();
     modal.style.display = "none";
 });
+
+function clearRadioButtons(){
+  var ele = document.querySelectorAll("input[type=radio]");
+   for(var i=0;i<ele.length;i++){
+      ele[i].checked = false;
+   }
+}
