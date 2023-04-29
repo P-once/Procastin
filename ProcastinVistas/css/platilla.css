@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,500&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:"poppins",sans-serif;
+}
+/*Header*/
+.header
+{
+    position:fixed;
+    top: 1%;
+    left: 5%;
+    width: 90%;
+    padding: 25px 13%;
+    background: rgb(77, 77, 77);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+.header a
+{
+    color:white;
+    font-size: 25px;
+}
+.NavBar a
+{
+    position:relative;
+    font-size: 16px;
+    color: beige;
+    margin-right: 30px;
+    text-decoration:none;
+}
+.NavBar ::after
+{
+    content:"" ;
+    position:absolute;
+    left: 0;
+    width: 100%;
+    height:2px ;
+    background-color:rgb(255, 255, 255);
+    bottom: -5px;
+    border-radius: 5px;
+    transform: translateY(10px);
+    opacity: 0;
+    transition:  .5s ease;
+}
+.NavBar :hover::after
+{
+    transform: translateY(0);
+    opacity: 1;
+
+}
+.search-bar
+{
+    width: 250px;
+    height :45px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+}
+.search-bar input
+{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    padding-left: 10px;
+
+}
+.search-bar  button
+{
+    width: 40px;
+    height: 100%;
+    background: transparent;
+    outline-style: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+
+}
+.search-bar input ::placeholder
+{
+    
+color:floralwhite;
+}
+.search-bar  button i
+{
+    font-size: 22px;
+}
+
+.search-bar button
+{
+    font-size:20px ;
+}
+/*Botones*/
+header .navbar .opciones    
+{
+    position:relative;
+    justify-content: space-between;
+}
+header .navbar .opciones .BtnRed
+{
+    position:flex;
+    background-color: aqua;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    justify-content: space-between;
+}
+/*Footer*/
+footer
+{
+    position: absolute;
+    bottom: 0%;
+    left: 30%;
+    width: 40%;
+    height: 240px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+    color: white;
+    background-color:rgb(77, 77, 77);
+
+}
+/*footer parte alta*/
+
+footer .Desarrolladores h1
+{
+    font-size: small;
+    text-align: center;
+}
+footer .Desarrolladores .Miembros ul
+{
+    columns: 2;
+    position: relative;
+    left: 10%;
+
+}
+footer .Desarrolladores .Miembros ul li 
+{
+    list-style: none;
+    justify-content: space-around;
+    
+}
+footer .Desarrolladores .Miembros ul li p
+{
+    font-size: 10px;
+}
+
+footer .Desarrolladores .Miembros ul li  .icono
+{
+    width: 15px;
+    height: 15px;
+    margin: 1px;
+}
+/*footer parte baja*/
+footer .github
+{
+    align-items: center;
+    text-align: center;
+    height: 50px;
+}
+footer .github .saber a img
+{
+    width: 30px;
+    height: 30px;
+}
+footer .github .saber a 
+{
+   color: white;
+}
+footer .github .chiquito
+{
+    font-size: x-small;
+}
+
+
