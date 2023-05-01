@@ -22,7 +22,7 @@ header
     z-index: 100;
 }
 
-.seleccion {
+.layout {
     display: flex;
     flex-wrap: wrap;
     max-width: 74vw;
@@ -30,8 +30,20 @@ header
     margin: 100px auto 0;
 }
 
-.seleccion > * {
+.section-center {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 74vw;
+    width: 80vw;
+    margin: 0 auto;
+}
+
+.section-center > * {
     margin: 20px 30px;
+}
+
+.btn-container {
+    width: 100%;
 }
 
 .boton {
@@ -47,7 +59,6 @@ header
   }
 
 .nuevo-proyecto {
-    font-size: 100px;
     text-align: center;
     user-select: none;
 }

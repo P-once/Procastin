@@ -1,15 +1,102 @@
 // Get the modal
 var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
-var btn = document.querySelector('.nuevo-proyecto');
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
+// Get the button that opens the modal
+var btn = document.getElementById('nuevo-proyecto');
 
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
+
+//Preview items
+const menu = [
+  {
+    id: 0,
+    title: "Tarea #1",
+    desc: "Descripcion de la tarea numero uno",
+    categoria: "Urgente",
+  },
+  {
+    id: 1,
+    title: "Tarea #2",
+    desc: "Tarea numero 2, esta es una tarea que es la numero 2",
+    categoria: "Urgente",
+  },
+  {
+    id: 2,
+    title: "Tarea #3",
+    desc: "Hacer mas tareas...",
+    categoria: "Diario",
+  },
+  {
+    id: 3,
+    title: "Tarea #4",
+    desc: "En esta tarea se planea hacer cosas como por ejemplo, algo y otra cosa mas.",
+    categoria: "Semanal",
+  },
+]
+
+const sectionCenter = document.querySelector('.section-center');
+const container = document.querySelector('.btn-container');
+
+//Cuando carga la pagina
+window.addEventListener('DOMContentLoaded', function() {
+   displayMenuItems(menu);
+
+   displayMenuButtons();
+});
+
+
+function displayMenuButtons () {
+  const categories = menu.reduce(function(values, item) {
+    if(!values.includes(item.categoria)) {
+      values.push(item.categoria);
+    }
+    return values;
+   }, ['Todos']);
+   const categoriaBtns = categories.map(function(categoria) {
+    return `<button class="filter-btn" data-id ="${categoria}">${categoria}</button>`
+   }).join("");
+   container.innerHTML = categoriaBtns;
+   const filterBtns = document.querySelectorAll('.filter-btn');
+
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      const category = e.currentTarget.dataset.id;
+  
+      if(category == 'Todos') {
+        displayMenuItems(menu);
+      }
+      else {
+        const menuCategory = menu.filter(function (menuItem) {
+          if(menuItem.categoria == category) {
+            return menuItem;
+          }
+        });
+        displayMenuItems(menuCategory);
+      }
+    })
+  });
+};
+
+function displayMenuItems(menuItems) {
+  let displayMenu = menuItems.map(function(item) {
+    return `<article class="boton proyecto">
+      <div class="titulo defaultT">
+          <p>${item.title}</p>
+      </div>
+      <div class="descripcion defaultD">
+          <p>${item.desc}</p>
+      </div>
+    </article>`;
+   })
+   displayMenu = displayMenu.join("");
+   sectionCenter.innerHTML = displayMenu;
+}
+
+ // When the user clicks on the button, open the modal
+ btn.onclick = function() {
   modal.style.display = "block";
 }
 
@@ -38,7 +125,7 @@ boton.addEventListener('click', function()
     let titulo = document.getElementById('titulo-tarea').value;
     let descripcion = document.getElementById('descripcion-tarea').value;
 
-    const divButton = document.createElement("DIV");
+    const divButton = document.createElement("ARTICLE");
     divButton.id = "proyecto-boton";
     divButton.setAttribute("class", "boton proyecto");
     divButton.name = "div-name";
@@ -57,7 +144,7 @@ boton.addEventListener('click', function()
     pDescripcion.innerHTML = descripcion;
     pDescripcion.name = "p-name";
 
-    document.getElementById('items-seleccion').appendChild(divButton);
+    document.getElementById('section-center').appendChild(divButton);
     divButton.appendChild(divTitle);
     divButton.appendChild(divDescripcion);
     divTitle.appendChild(pTitle);
