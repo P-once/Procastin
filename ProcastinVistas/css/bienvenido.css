@@ -45,7 +45,20 @@ body {
     z-index: 100;
 }
 
+.logo {
+    height: 50px;
+}
 
+img {
+    display: block;
+}
+
+.banner {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
 
 .navbar-img {
     padding-left: 10px;
