@@ -6,76 +6,23 @@ body {
     background-color: rgb(230, 227, 227);
 }
 
-.navbar {
-    font-size: large;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: lightgray;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-}
 
-.titulo {
-    font-weight: bold;
-    font-size: larger;
-}
-.navbar a
-{
-    
-    color: #ffffff;
-    position: relative;
-    justify-content: space-around;
-    align-items:end;
-    z-index: 100; 
-}
-.navbar
-{
-    position:relative;
-    color: #ffffff;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px 20%;
-    background: rgb(77, 77, 77);
-    display: flex;
-    position: relative;
-    justify-content: initial;
-    z-index: 100;
-}
-
-.logo {
-    height: 50px;
-}
-
-img {
-    display: block;
-}
-
-.banner {
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
-    text-align: center;
-}
-
-.navbar-img {
-    padding-left: 10px;
-}
 
 .form-registro {
-    position: relative;
-    top: 50px;
+    position: absolute;
+    top: 100px;
     background-color: white;
     display: flex;
     flex-direction: row;
 }
 
 .bienvenido-texto {
-    position: fixed;
+    position: absolute;
+    top: 30%;
     left: 25px;
-    background-color: gainsboro;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: xx-large;
+    background-color: rgb(255, 255, 255);
     padding: 2px;
 }
 
@@ -125,5 +72,18 @@ img {
     border-color: rgb(97, 228, 184);
     color: rgb(97, 228, 184);
     border-style: solid;
+}
+
+
+/*footer y header*/
+footer
+{
+position: absolute !important;
+top: 90%;
+
+}
+
+header{
+    position: absolute !important;
 }
 

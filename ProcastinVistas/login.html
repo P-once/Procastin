@@ -1,64 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-    <link rel="stylesheet" href="css/PerfilUsuario.css">
-    <link rel="stylesheet" href="css/platilla.css">
-    <title>Perfil @Juanito</title>
-</head>
-<body>
-    <!--Header generico :)-->
-    <header class="header">
-        <a href="principal.html"><img class="navbar-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Mr._Smiley_Face.svg/1024px-Mr._Smiley_Face.svg.png" width="25px" height="25px">Procastin</a>
-
-        <nav class="NavBar" >
-            <a href="PerfilUsuario.html">Perfil</a>
-            <a href="proyectos.html">Proyectos</a>
-            <a href="principal.html">Home</a>
-        </nav>
-        <form action="" class="search-bar">
-            <input type="text" placeholder="Buscar...">
-            <button><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAUJJREFUSEu9le0xBEEURc9GQAhEgAzIgAjIABmQARmQgQwQARnYEIiAOlWv1avR3TO7NWOq9sdOd9/z+r6PWbHws1pYnx5gD7gEjoHDCOQdeAHugfWU4FqAuxDvabjnegxSAxjlQRx8BBTynY83uQLO042OepAhoET+FdYU4aGGIK3aCbuEVp8M0POP2GVULfEiJOQt/uy3cpIBJXoT2IxoEOZD2NU8kwHF+ynRD2/h2WouMuA7Tm3aG91zcwEsit1aluey6DWq7g/jX5O8bZlqjyVbHR2tRvsETjq9oOBz+H4L3ExptLInjwrr3BrPo8IBeJEEXTMYg+rmIC+ODTttcc9pzK0mZGxc29GOa4efogr5U1zPLU1nkutVyKZNVXOhC5kDIDRDzoCnEslcgALRzl9xX84JGP0e9D5MW68tfoMfCXxMGRHr0pcAAAAASUVORK5CYII="/></button>
-            
-        </form>
-    </header>
-
-
-    <h1>Perfil</h1>
-    <div>
-        <div class="conteiner">
-            <div class="TituloTarea">
-            <h2>Muy bien juanito en el ultimo mes has cumplido 90 tareas<br>Sigue asi!!:) </h2>
-            </div>
-            <div class="TAREAS">
-                <div class="Proyecto">
-                    <h3>Proyecto</h3>
-                    <p>Importante</p>
-                    <br>
-                </div>
-                <div class="Proyecto">
-                    <h3>Prepararce</h3>
-                    <p>Entrevista de trabajo</p>
-                </div>
-
-            </div>
-            <div class="Ranking">
-                <img src="https://th.bing.com/th/id/R.fc15c272ac709ac76e60d0898f65c3b6?rik=OQgMi36FGaP4fA&pid=ImgRaw&r=0" alt="Usuario icono" width="40px" height="40px">
-                <h2>Juanito</h2>
-                <hr>
-                <h2>Posicion</h2>
-                <hr>
-
-            </div>
-        </div>
-
-
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/bienvenido.css">
+        <link rel="stylesheet" href="css/platilla.css">
+    </head>
+    <body>
+        <!--Header ligeramente adaptado-->
+        <header class="header">
+            <a href="principal.html"><img class="navbar-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Mr._Smiley_Face.svg/1024px-Mr._Smiley_Face.svg.png" width="25px" height="25px">Procastin</a>
     
+            <nav class="NavBar" >
+                <a href="registro.html">Registro</a>
+                <a href="principal.html">Home</a>
+                
+            </nav>
+           
+        </header>
 
-        <!--footer generico :)-->
 
-    <footer >
+
+
+        <form class="form-registro">
+            <div class="div-img">
+                <h3 class="bienvenido-texto">Bienvenido a Procastin </h3>
+                <img class="bienvenido-img" src="https://www.incimages.com/uploaded_files/image/1920x1080/getty_623425276_351576.jpg">
+            </div>
+            <div class="div-ingresar">
+                <h4 class="ingresar-texto">Ingresa tu usuario y constraseña para poder ingresar</h4>
+                <label class="registro-texto" for="usuario">Username</label><br>
+                <input class="registro-info" type="text" id="usuario"><br><br>
+                <label class="registro-texto" for="password">Password</label><br>
+                <input class="registro-info" type="password" id="password"><br><br>
+                <!--corregir boton solo para desmostracion navegacion entre ventanas-->
+                <a href="PerfilUsuario.html"><input class="registro-fin" type="submit" value="Submit"><br><br></a>
+                <a href="">¿Olvidaste tu contraseña?</a>
+            </div>
+        </form>
+
+        <!--footer generico-->
+
+<footer >
         <div class="Desarrolladores">
             <h1>Desarrolladores</h1>
             <div class="Miembros">
@@ -117,6 +99,9 @@
         </div>
     </div>
 </footer>
-</body>
 
+
+
+
+    </body>
 </html>
