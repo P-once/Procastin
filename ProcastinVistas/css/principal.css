@@ -74,20 +74,16 @@ p {
   color: black;
   padding: 0.375rem 0.75rem;
   display: inline-block;
-  transition: var(--transition);
   font-size: 0.875rem;
   border: 2px solid black;
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  border-radius: var(--radius);
 }
 .btn:hover {
   color: white;
-  background: var(--clr-black);
 }
 .btn:hover {
   background: white;
-  color: var(--clr-secondary);
 }
 /* section */
 .section {
@@ -109,14 +105,8 @@ main {
   display: grid;
   place-items: center;
 }
-/*
-=============== 
-Scroll
-===============
-*/
 /* navbar */
 nav {
-  background: var(--clr-white);
   padding: 1rem 1.5rem;
 }
 /* fixed nav */
@@ -126,7 +116,6 @@ nav {
   left: 0;
   width: 100%;
   background: #32323E;
-  box-shadow: var(--light-shadow);
 }
 .fixed-nav .links a {
   color: white;
@@ -134,9 +123,6 @@ nav {
 .fixed-nav .links a:hover {
   color: #F6BE00;
 }
-/* .fixed-nav .links-container {
-  height: auto !important;
-} */
 .nav-header {
   display: flex;
   align-items: center;
@@ -144,14 +130,9 @@ nav {
 }
 .nav-toggle {
   font-size: 1.5rem;
-  color: var(--clr-grey-1);
   background: transparent;
   border-color: transparent;
-  transition: var(--transition);
   cursor: pointer;
-}
-.nav-toggle:hover {
-  color: var(--clr-secondary);
 }
 .logo {
   height: 50px;
@@ -159,18 +140,14 @@ nav {
 .links-container {
   height: 0;
   overflow: hidden;
-  transition: var(--transition);
 }
 .show-links {
   height: 200px;
 }
 .links a {
-  background: var(--clr-white);
-  color: var(--clr-grey-5);
   font-size: 1.1rem;
   text-transform: capitalize;
   display: block;
-  transition: var(--transition);
   font-weight: bold;
   padding: 0.75rem 0;
 }
@@ -207,13 +184,9 @@ nav {
     font-size: 1.1rem;
     text-transform: capitalize;
     display: block;
-    transition: var(--transition);
     margin: 0 1rem;
     font-weight: bold;
     padding: 0;
-  }
-  .links a:hover {
-    color: var(--clr-white);
   }
 }
 /* hero */
@@ -228,11 +201,9 @@ header {
   text-align: center;
 }
 .container h1 {
-  color: var(--clr-white);
   text-transform: uppercase;
 }
 .container p {
-  color: var(--clr-white);
   max-width: 25rem;
   margin: 0 auto;
   margin-bottom: 1.25rem;
