@@ -96,7 +96,7 @@ header
     align-items: center;
     z-index: 100;
 }
-header iframe
+header .encabezado
 {
     width:100% ;
     height: 100%;
@@ -106,29 +106,13 @@ header iframe
 }
 
 
-footer
+.foter
 {
-    position: absolute;
-    top:100%;
-    left: 30%;
-    width: 40%;
-    height: 240px;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 500;
-    color: white;
-    background-color:rgb(77, 77, 77);
-    margin: 0%;
-    padding: 0%;
-    border-style: none;
-}
-footer iframe
-{
-    width:100% ;
-    height: 100%;
-    margin: 0%;
-    padding: 0%;
-    border-style: none;
-
+    width: 100% !important;
+    height: 240px !important;
+    position: relative !important;
+    bottom: 0% !important;
+    
 }
 
 

@@ -8,19 +8,6 @@
     font-family:"poppins",sans-serif;
 }
 
-header
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px 20%;
-    background: lightgray;
-    display: flex;
-    justify-content: space-between;
-    align-items:end;
-    z-index: 100;
-}
 
 .layout {
     display: flex;
@@ -227,4 +214,17 @@ header
     content: '';
     display: inline-block;
     border: 2px solid white;
+}
+
+
+/*footer y header*/
+footer
+{
+position: absolute !important;
+top: 90%;
+
+}
+
+header{
+    position: absolute !important;
 }

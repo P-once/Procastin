@@ -6,40 +6,11 @@ body {
     background-color: rgb(230, 227, 227);
 }
 
-.navbar {
-    font-size: large;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: lightgray;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-}
-
-.titulo {
-    font-weight: bold;
-    font-size: larger;
-}
-
-.navbar-button {
-    font-size: large;
-    position: relative;
-    float: right;
-    border: none;
-    background: none;
-    margin-right: 50px;
-}
-
-.navbar-button:hover {
-    cursor: pointer;
-}
-
-.navbar-img {
-    padding-left: 10px;
-}
 
 .form-registro {
+    position: absolute;
+    top: 10%;
+    left: 35%;
     background-color: white;
     width: 30%;
     height: 88vh;
@@ -47,7 +18,8 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 60px;
+    margin-top: 10px;
+    padding-top: 100px;
 }
 
 .form-registro > * {
@@ -82,4 +54,17 @@ body {
     border-color: rgb(97, 228, 184);
     color: rgb(97, 228, 184);
     border-style: solid;
+}
+
+
+/*footer y header*/
+footer
+{
+position: absolute !important;
+top: 100%;
+
+}
+
+header{
+    position: absolute !important;
 }
