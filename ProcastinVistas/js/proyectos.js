@@ -15,13 +15,14 @@ const menu = [
     id: 0,
     title: "Tarea #1",
     desc: "Descripcion de la tarea numero uno",
-    categoria: "Urgente",
+    categoria: "To-do",
+    dificultad: "0",
   },
   {
     id: 1,
     title: "Tarea #2",
     desc: "Tarea numero 2, esta es una tarea que es la numero 2",
-    categoria: "Urgente",
+    categoria: "To-do",
   },
   {
     id: 2,
@@ -33,7 +34,7 @@ const menu = [
     id: 3,
     title: "Tarea #4",
     desc: "En esta tarea se planea hacer cosas como por ejemplo, algo y otra cosa mas.",
-    categoria: "Semanal",
+    categoria: "Diario",
   },
 ]
 
@@ -113,17 +114,21 @@ window.onclick = function(event) {
   if (event.target == modal) {
     document.getElementById('titulo-tarea').value = "";
     document.getElementById('descripcion-tarea').value = "";
-    clearRadioButtons();
     modal.style.display = "none";
+    clearRadioButtons();
   }
 }
 
 const boton = document.querySelector('.crear-proyecto');
 
+//Crear nueva tarea
 boton.addEventListener('click', function()
 {       ///Boton deberia usar 'submit'
     let titulo = document.getElementById('titulo-tarea').value;
     let descripcion = document.getElementById('descripcion-tarea').value;
+    let tipo = document.querySelector('input[name="type"]:checked').value;
+    console.log(tipo);
+    console.log("hello");
 
     const divButton = document.createElement("ARTICLE");
     divButton.id = "proyecto-boton";
@@ -179,8 +184,10 @@ boton.addEventListener('click', function()
 });
 
 function clearRadioButtons(){
-  var ele = document.querySelectorAll("input[type=radio]");
-   for(var i=0;i<ele.length;i++){
-      ele[i].checked = false;
-   }
+  let color = document.querySelectorAll("input[name=color]");
+  let type = document.querySelectorAll("input[name=type]");
+  for(var i=0;i<color.length;i++){
+    color[i].checked = false;
+  }
+  type[0].checked = true;
 }

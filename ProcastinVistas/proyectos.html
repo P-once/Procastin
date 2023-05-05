@@ -60,9 +60,18 @@
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">Cancel</span>
-            <h3>Ingresar informacion sobre la nueva actividad</h3>
-            <form id="form-modal">
-                <label class="texto-info" for="titulo-tarea">Actividad</label>
+            <form class="form-modal">
+                <label class="texto-info" for="titulo-tarea">Crear tarea</label>
+                <div class="radio-container">
+                    <input class="tipo-radio" type="radio" name="type" id="to-do" value="to-do" checked>
+                    <label for="to-do" class="todo">
+                        <span class="span-tipo">To-do</span>
+                    </label>
+                    <input class="tipo-radio" type="radio" name="type" id="daily" value="daily">
+                    <label for="daily" class="diario">
+                        <span class="span-tipo">Daily</span>
+                    </label>
+                </div>
                 <input type="text" id="titulo-tarea" class="tarea-info" required placeholder="Titulo:"><br>
                 <textarea class="tarea-info" id="descripcion-tarea" placeholder="Descripcion: (Opcional)"></textarea><br>
                 <input type="radio" name="color" class="color c1" value="blueRed">

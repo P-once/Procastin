@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,500&display=swap');
 
+:root {
+    --color1: #32323E;
+    --color2: #40476D;
+    --color3: #1B9AAA;
+    --color4: #FFFCF1;
+    --color5: #F6BE00;
+}
+
 *
 {
     margin: 0;
@@ -8,7 +16,11 @@
     font-family:"poppins",sans-serif;
 }
 
+body {
+    background-color: var(--color3);
+}
 
+/* Layout de la pagina */
 .layout {
     display: flex;
     flex-wrap: wrap;
@@ -17,6 +29,7 @@
     margin: 100px auto 0;
 }
 
+/* Filtros */
 .section-center {
     display: flex;
     flex-wrap: wrap;
@@ -70,11 +83,11 @@
 }
 
 .defaultT {
-    background-color: white;
+    background-color: var(--color5);
 }
 
 .defaultD {
-    background-color: rgb(95, 95, 95);
+    background-color: var(--color1);
 }
 
 .blue {
@@ -106,12 +119,6 @@
     color: white;
 }
 
-.proyecto-boton {
-    width: 200px;
-    height: 140px;
-    background-color: aquamarine;
-}
-
 
 /* The Modal (background) */
 .modal {
@@ -126,46 +133,107 @@
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
+
+  .radio-container {
+    background-color: var(--color4);
+    height: 90px;
+    width: 260px;
+    position: relative;
+    overflow: hidden;
+    margin-left: 18vw;
+  }
+
+  input[name="type"] {
+    display: none;
+  }
+
+  .todo, .diario {
+    display: block;
+    height: 180px;
+    width: 130px;
+    background-size: 130px 180px;
+    position: absolute;
+    top: 0;
+    transition: 0.5s;
+    color: #2c2c2c;
+  }
+
+  .diario {
+    right: 0;
+  }
+
+  .span-tipo {
+    display: flex;
+    height: 90px;
+    width: 130px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 22px;
+  }
+
+  input:checked + label {
+    color: black;
+    transition: 0.2s;
+    background-color: var(--color5);
+  }
   
   /* Modal Content/Box */
   .modal-content {
-    background-color: #fefefe;
+    background-color: var(--color1);
     margin: 10% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid var(--color1);
     width: 60%; /* Could be more or less, depending on screen size */
-    height: 50%;
-    text-align: center;
+    height: 60%;
   }
   
   /* The Close Button */
   .close {
     color: #aaa;
-    float: right;
     font-size: 28px;
     font-weight: bold;
+    position: absolute;
+    float: left;
   }
   
   .close:hover,
   .close:focus {
-    color: black;
+    color: rgb(155, 22, 22);
     text-decoration: none;
     cursor: pointer;
   }
 
-  .form1-modal {
+  .form-modal {
+    width: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
   }
+
+.form-modal > * {
+    margin: 1vh auto 0;
+}
 
 .texto-info {
     font-size: 30px;
 }
 
 .tarea-info {
-    border-radius: 15px;
+    border-radius: 5px;
+    border-style: none;
     font-size: 20px;
     width: 50vw;
     margin-bottom: 1vh;
+    padding: 5px;
+}
+
+.tarea-info:focus {
+    outline-offset: 10px;
+    outline-width: 2px;
+    outline-color: var(--color4);
 }
 
 #descripcion-tarea {
@@ -220,8 +288,9 @@
 /*footer y header*/
 footer
 {
-position: absolute !important;
-top: 90%;
+    position: absolute !important;
+    top: 90%;
+    width: 100%;
 
 }
 
