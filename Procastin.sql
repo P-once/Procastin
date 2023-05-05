@@ -21,6 +21,10 @@ SET time_zone = "+00:00";
 -- Base de datos: `procastin`
 --
 
+--DROP DATABASE IF EXISTS procastin;
+--CREATE DATABASE procastin;
+--USE procastin;
+
 -- --------------------------------------------------------
 
 --
