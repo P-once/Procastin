@@ -10,8 +10,8 @@ body {
 
 .form-registro {
     position: absolute;
-    top: 100px;
-    background-color: white;
+    top: 110px;
+    background-color:#FFFCF1;
     display: flex;
     flex-direction: row;
 }
