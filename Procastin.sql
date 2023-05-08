@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-05-2023 a las 00:26:25
+-- Tiempo de generación: 08-05-2023 a las 08:09:00
 -- Versión del servidor: 8.0.33
 -- Versión de PHP: 8.2.4
 
@@ -21,10 +21,6 @@ SET time_zone = "+00:00";
 -- Base de datos: `procastin`
 --
 
---DROP DATABASE IF EXISTS procastin;
---CREATE DATABASE procastin;
---USE procastin;
-
 -- --------------------------------------------------------
 
 --
@@ -34,15 +30,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `contactos` (
   `IdContacto` int NOT NULL,
   `NombreContacto` varchar(30) NOT NULL,
-  `DescContacto` text NOT NULL
+  `DescContacto` text NOT NULL,
+  `IdUsuario` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `contactos`
 --
 
-INSERT INTO `contactos` (`IdContacto`, `NombreContacto`, `DescContacto`) VALUES
-(1, 'Andres', 'Buscando trabajo como desarrollor');
+INSERT INTO `contactos` (`IdContacto`, `NombreContacto`, `DescContacto`, `IdUsuario`) VALUES
+(1, 'Andres', 'Buscando trabajo como desarrollador', 1);
 
 -- --------------------------------------------------------
 
@@ -64,7 +61,28 @@ CREATE TABLE `logros` (
 --
 
 INSERT INTO `logros` (`IdLogro`, `NomLogro`, `DescLogro`, `DifiLogro`, `ExpLogro`, `ImgLogro`) VALUES
-(1, 'Principiante', 'Completa 10 tareas', 1, 150, NULL);
+(1, 'Principiante', 'Completa 10 tarea', 1, 150, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `logrosdeusuario`
+--
+
+CREATE TABLE `logrosdeusuario` (
+  `IdUsuario` int NOT NULL,
+  `IdLogro` int NOT NULL,
+  `NomUsuario` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `NomLogro` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `FechaObtencionLogro` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `logrosdeusuario`
+--
+
+INSERT INTO `logrosdeusuario` (`IdUsuario`, `IdLogro`, `NomUsuario`, `NomLogro`, `FechaObtencionLogro`) VALUES
+(1, 1, 'Daniel', 'Principiante', '2023-05-07');
 
 -- --------------------------------------------------------
 
@@ -74,7 +92,7 @@ INSERT INTO `logros` (`IdLogro`, `NomLogro`, `DescLogro`, `DifiLogro`, `ExpLogro
 
 CREATE TABLE `medallas` (
   `IdMedalla` int NOT NULL,
-  `NomMedalla` varchar(40) NOT NULL,
+  `NomMedalla` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `DescMedalla` text NOT NULL,
   `DifiMedalla` int NOT NULL,
   `ImgMedalla` blob
@@ -90,6 +108,27 @@ INSERT INTO `medallas` (`IdMedalla`, `NomMedalla`, `DescMedalla`, `DifiMedalla`,
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `medallasdeusuario`
+--
+
+CREATE TABLE `medallasdeusuario` (
+  `IdUsuario` int NOT NULL,
+  `IdMedalla` int NOT NULL,
+  `NomUsuario` varchar(30) NOT NULL,
+  `NomMedalla` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `FechaObtencionMedalla` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `medallasdeusuario`
+--
+
+INSERT INTO `medallasdeusuario` (`IdUsuario`, `IdMedalla`, `NomUsuario`, `NomMedalla`, `FechaObtencionMedalla`) VALUES
+(1, 1, 'Andres', 'Buen Trabajo', '2023-05-07');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tareas`
 --
 
@@ -100,15 +139,16 @@ CREATE TABLE `tareas` (
   `DescTarea` text NOT NULL,
   `FechaIniTarea` date NOT NULL,
   `DifiTarea` int NOT NULL,
-  `TipoTarea` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+  `TipoTarea` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `IdUsuario` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `tareas`
 --
 
-INSERT INTO `tareas` (`IdTareas`, `NomTarea`, `ExpTarea`, `DescTarea`, `FechaIniTarea`, `DifiTarea`, `TipoTarea`) VALUES
-(1, 'Paseo', 50, 'Sacar a pasear el perro', '2023-05-04', 2, 'Daily');
+INSERT INTO `tareas` (`IdTareas`, `NomTarea`, `ExpTarea`, `DescTarea`, `FechaIniTarea`, `DifiTarea`, `TipoTarea`, `IdUsuario`) VALUES
+(1, 'Paseo', 50, 'Sacar a pasear al perro', '2023-05-07', 1, 'Daily', 2);
 
 -- --------------------------------------------------------
 
@@ -125,20 +165,16 @@ CREATE TABLE `usuarios` (
   `DescUsuario` text NOT NULL,
   `TareasRealizadas` int NOT NULL,
   `ExpUsuario` bigint NOT NULL,
-  `RangoUsuario` smallint NOT NULL,
-  `IdTarea` int DEFAULT NULL,
-  `IdContacto` int DEFAULT NULL,
-  `IdLogro` int DEFAULT NULL,
-  `IdMedalla` int DEFAULT NULL
+  `RangoUsuario` smallint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`IdUsuario`, `NomUsuario`, `ContraseniaUsuario`, `CorreoUsuario`, `ImgUsuario`, `DescUsuario`, `TareasRealizadas`, `ExpUsuario`, `RangoUsuario`, `IdTarea`, `IdContacto`, `IdLogro`, `IdMedalla`) VALUES
-(1, 'Daniel', 'abc123', 'correo1@gmail.com', NULL, 'Ing en sistemas', 0, 0, 1, NULL, NULL, NULL, NULL),
-(3, 'Andres', 'def456', 'correo2@gmail.com', NULL, 'Buscando trabajo como desarrollor', 0, 0, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `usuarios` (`IdUsuario`, `NomUsuario`, `ContraseniaUsuario`, `CorreoUsuario`, `ImgUsuario`, `DescUsuario`, `TareasRealizadas`, `ExpUsuario`, `RangoUsuario`) VALUES
+(1, 'Daniel', 'abc123', 'correo1@gmail.com', NULL, 'Ing en Sistemas', 0, 0, 1),
+(2, 'Andres', 'def456', 'correo2@gmail.com', NULL, 'Buscando trabajo como desarrollador', 0, 0, 1);
 
 --
 -- Índices para tablas volcadas
@@ -148,36 +184,51 @@ INSERT INTO `usuarios` (`IdUsuario`, `NomUsuario`, `ContraseniaUsuario`, `Correo
 -- Indices de la tabla `contactos`
 --
 ALTER TABLE `contactos`
-  ADD PRIMARY KEY (`IdContacto`);
+  ADD PRIMARY KEY (`IdContacto`),
+  ADD KEY `FK_Contacto_Usuario` (`IdUsuario`);
 
 --
 -- Indices de la tabla `logros`
 --
 ALTER TABLE `logros`
-  ADD PRIMARY KEY (`IdLogro`);
+  ADD PRIMARY KEY (`IdLogro`),
+  ADD UNIQUE KEY `NomLogro` (`NomLogro`);
+
+--
+-- Indices de la tabla `logrosdeusuario`
+--
+ALTER TABLE `logrosdeusuario`
+  ADD KEY `FK_LDU_Usuario` (`IdUsuario`),
+  ADD KEY `FK_LDU_Logro` (`IdLogro`);
 
 --
 -- Indices de la tabla `medallas`
 --
 ALTER TABLE `medallas`
-  ADD PRIMARY KEY (`IdMedalla`);
+  ADD PRIMARY KEY (`IdMedalla`),
+  ADD UNIQUE KEY `NomMedalla` (`NomMedalla`);
+
+--
+-- Indices de la tabla `medallasdeusuario`
+--
+ALTER TABLE `medallasdeusuario`
+  ADD KEY `FK_MDU_Usuario` (`IdUsuario`),
+  ADD KEY `FK_MDU_Medalla` (`IdMedalla`);
 
 --
 -- Indices de la tabla `tareas`
 --
 ALTER TABLE `tareas`
-  ADD PRIMARY KEY (`IdTareas`);
+  ADD PRIMARY KEY (`IdTareas`),
+  ADD UNIQUE KEY `NomTarea` (`NomTarea`),
+  ADD KEY `FK_Tarea_Usuario` (`IdUsuario`);
 
 --
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`IdUsuario`),
-  ADD UNIQUE KEY `NomUsuario` (`NomUsuario`),
-  ADD KEY `FK_User_Tarea` (`IdTarea`),
-  ADD KEY `FK_User_Contacto` (`IdContacto`),
-  ADD KEY `FK_User_Logro` (`IdLogro`),
-  ADD KEY `FK_User_Medalla` (`IdMedalla`);
+  ADD UNIQUE KEY `NomUsuario` (`NomUsuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -211,20 +262,37 @@ ALTER TABLE `tareas`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `IdUsuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IdUsuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `usuarios`
+-- Filtros para la tabla `contactos`
 --
-ALTER TABLE `usuarios`
-  ADD CONSTRAINT `FK_User_Contacto` FOREIGN KEY (`IdContacto`) REFERENCES `contactos` (`IdContacto`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `FK_User_Logro` FOREIGN KEY (`IdLogro`) REFERENCES `logros` (`IdLogro`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `FK_User_Medalla` FOREIGN KEY (`IdMedalla`) REFERENCES `medallas` (`IdMedalla`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `FK_User_Tarea` FOREIGN KEY (`IdTarea`) REFERENCES `tareas` (`IdTareas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `contactos`
+  ADD CONSTRAINT `FK_Contacto_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `usuarios` (`IdUsuario`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Filtros para la tabla `logrosdeusuario`
+--
+ALTER TABLE `logrosdeusuario`
+  ADD CONSTRAINT `FK_LDU_Logro` FOREIGN KEY (`IdLogro`) REFERENCES `logros` (`IdLogro`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `FK_LDU_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `usuarios` (`IdUsuario`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Filtros para la tabla `medallasdeusuario`
+--
+ALTER TABLE `medallasdeusuario`
+  ADD CONSTRAINT `FK_MDU_Medalla` FOREIGN KEY (`IdMedalla`) REFERENCES `medallas` (`IdMedalla`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `FK_MDU_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `usuarios` (`IdUsuario`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Filtros para la tabla `tareas`
+--
+ALTER TABLE `tareas`
+  ADD CONSTRAINT `FK_Tarea_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `usuarios` (`IdUsuario`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
