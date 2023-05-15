@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="css/bienvenido.css">
+        <link rel="stylesheet" href="css/login.css">
         <link rel="stylesheet" href="css/platilla.css">
     </head>
     <body>
@@ -19,24 +19,24 @@
         </header>
 
 
-
-
-        <form class="form-registro">
+        <div class="order-div">
             <div class="div-img">
                 <h3 class="bienvenido-texto">Bienvenido a Procastin </h3>
-                <img class="bienvenido-img" src="https://www.incimages.com/uploaded_files/image/1920x1080/getty_623425276_351576.jpg">
+                <img class="bienvenido-img" src="https://img.freepik.com/free-vector/task-management-abstract-concept-illustration_335657-2127.jpg">
             </div>
-            <div class="div-ingresar">
-                <h4 class="ingresar-texto">Ingresa tu usuario y constraseña para poder ingresar</h4>
-                <label class="registro-texto" for="usuario">Username</label><br>
-                <input class="registro-info" type="text" id="usuario"><br><br>
-                <label class="registro-texto" for="password">Password</label><br>
-                <input class="registro-info" type="password" id="password"><br><br>
-                <!--corregir boton solo para desmostracion navegacion entre ventanas-->
-                <a href="PerfilUsuario.html"><input class="registro-fin" type="submit" value="Submit"><br><br></a>
-                <a href="">¿Olvidaste tu contraseña?</a>
-            </div>
-        </form>
+            <form class="form-registro">
+                <div class="div-ingresar">
+                    <h4 class="ingresar-texto">Ingresa tu usuario y constraseña para poder ingresar</h4>
+                    <label class="registro-texto" for="usuario">Username</label>
+                    <input class="registro-info" type="text" id="usuario">
+                    <label class="registro-texto" for="password">Password</label>
+                    <input class="registro-info" type="password" id="password">
+                    <!--corregir boton solo para desmostracion navegacion entre ventanas-->
+                    <a href="PerfilUsuario.html"><input class="registro-fin" type="submit" value="Submit"></a>
+                    <a href="">¿Olvidaste tu contraseña?</a>
+                </div>
+            </form>
+        </div>
 
         <!--footer generico-->
 

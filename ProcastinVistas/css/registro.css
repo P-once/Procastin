@@ -4,28 +4,28 @@
 
 body {
     background-color: rgb(230, 227, 227);
+    position: relative;
+    padding-bottom: 250px;
+    min-height: 100vh;
 }
 
 
 .form-registro {
-    position: absolute;
+    position: static;
     top: 10%;
     left: 35%;
     background-color: white;
-    width: 30%;
-    height: 88vh;
+    width: 35%;
+    height: 100vh;
+    min-height: 850px;
     text-align: center;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
+    margin: auto;
     padding-top: 100px;
 }
 
 .form-registro > * {
     display: block;
-    padding-top: 15px;
-    margin: auto;
+    margin: 5vh auto 0;
 }
 
 .ingresar-texto {
@@ -54,17 +54,7 @@ body {
     border-color: rgb(97, 228, 184);
     color: rgb(97, 228, 184);
     border-style: solid;
+    margin-top: 30px;
 }
 
 
-/*footer y header*/
-footer
-{
-position: absolute !important;
-top: 100%;
-
-}
-
-header{
-    position: absolute !important;
-}
