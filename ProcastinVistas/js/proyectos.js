@@ -91,9 +91,17 @@ function displayMenuItems(menuItems) {
           <p>${item.desc}</p>
       </div>
     </article>`;
-   })
-   displayMenu = displayMenu.join("");
-   sectionCenter.innerHTML = displayMenu;
+  })
+  displayMenu = displayMenu.join("");
+  sectionCenter.innerHTML = displayMenu;
+
+  const actividadBtns = document.querySelectorAll('.proyecto');
+
+  actividadBtns.forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      modal.style.display = "block";
+    })
+  });
 }
 
  // When the user clicks on the button, open the modal
@@ -119,10 +127,10 @@ window.onclick = function(event) {
   }
 }
 
-const boton = document.querySelector('.crear-proyecto');
+const nuevo = document.querySelector('.crear-proyecto');
 
 //Crear nueva tarea
-boton.addEventListener('click', function()
+nuevo.addEventListener('click', function()
 {       ///Boton deberia usar 'submit'
     let titulo = document.getElementById('titulo-tarea').value;
     let descripcion = document.getElementById('descripcion-tarea').value;
