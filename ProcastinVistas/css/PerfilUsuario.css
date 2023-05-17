@@ -15,68 +15,104 @@ body
     justify-content: center;
 }
 
-h1
+
+    /*Tareas*/
+    .wrap{
+        width: 800px;
+        max-width: 90%;
+        margin: 30px auto;
+    }
+    
+    ul.tabs{
+        width: 100%;
+        background: #363636;
+        list-style: none;
+        display: flex;
+    }
+    
+    ul.tabs li{
+        width: 18%;
+    }
+    
+    ul.tabs li a{
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        text-align: center;
+    
+        display: block;
+        padding: 20px 0px;
+    }
+    
+    .active{
+        background: #0984CC;
+    }
+    
+    ul.tabs li a .tab-text{
+        margin-left: 8px;
+    }
+    
+    .secciones{
+        width: 100%;
+        background: #fff;
+    }
+    
+    .secciones article{
+        padding: 30px;
+    }
+    
+    .secciones article p{
+        text-align: justify;
+    }
+    
+    
+    @media screen and (max-width: 700px){
+        ul.tabs li{
+            width: none;
+            flex-basis: 0;
+            flex-grow: 1;
+        }
+    }
+    
+    @media screen and (max-width: 450px){
+        ul.tabs li a{
+            padding: 15px 0px;
+        }
+    
+        ul.tabs li a .tab-text{
+            display: none;
+        }
+    
+        .secciones article{
+            padding: 20px;
+        }
+    }
+/*Perfil */
+.Perfil
+{
+    background-color: #363636;
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    width: 90%;
+    height: 300px;
+}
+.Perfil img
 {
     position: absolute;
-    top: 15%;
-    left: 5%;
+    top: 20%;
+    left: 5% ;
+    width: 150px;
+    height: 150px;
+
 }
-.conteiner
+.Perfil .info
 {
-    background-color: aqua;
     position: absolute;
-    left: 5%;
-    top:20%;
-    transform: translate(5%,5%);
-    width: auto;
-    height: auto;
-    margin-top: 10px;
-
-
+    top: 30%;
+    left: 25%;
 }
-.conteiner .TAREAS
-{
-    background-color: #40476d;
-    position:absolute;
-    top: 100px;
-    left: 0;
-    width: 70%;
-    height: 100%;
-    color: white;
-    padding: 100px;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-}
-.conteiner .Ranking
-{
-    position:absolute;
-    top: 100px;
-    right: 0;
-    width: calc(100% - 75% );
-    height:relative;
-    color: #ffffff;
-    flex-direction: column;
-    background-color: #1b9aaa;
-    text-align: center;
 
-}
-.conteiner .Proyecto
-{
-    background-color: #f6be00;
-    position:relative;
-    top: 0;
-    left: 0;
-}
-.conteiner .TituloTarea
-{
-    background-color: #40476d;
-    color: bisque;
-
-    top:0;
-    left: 0;
-
-}
 
 
 
@@ -108,10 +144,11 @@ header .encabezado
 
 .foter
 {
-    width: 100% !important;
+    width: 150% !important;
     height: 240px !important;
-    position: relative !important;
+    position: absolute !important;
     bottom: 0% !important;
+    top: 110%;
     
 }
 
