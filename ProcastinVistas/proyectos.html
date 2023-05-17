@@ -74,14 +74,29 @@
                         <span class="span-tipo">Daily</span>
                     </label>
                 </div>
-                <input type="text" id="titulo-tarea" class="tarea-info" required placeholder="Titulo:"><br>
-                <textarea class="tarea-info" id="descripcion-tarea" placeholder="Descripcion: (Opcional)"></textarea><br>
-                <input type="radio" name="color" class="color c1" value="blueRed">
-                <input type="radio" name="color" class="color c2" value="orangePurple">
+                <div>
+                      <label class="rating-label">Dificultad de la actividad
+                        <input
+                          class="rating"
+                          max="5"
+                          oninput="this.style.setProperty('--value', this.value)"
+                          step="1"
+                          style="--stars:5;--value:2"
+                          type="range"
+                          value="2">
+                      </label>
+                </div>
+                <div class="informacion-texto">
+                    <input type="text" id="titulo-tarea" class="tarea-info" required placeholder="Titulo:">
+                    <textarea class="tarea-info" id="descripcion-tarea" placeholder="Descripcion: (Opcional)"></textarea>
+                </div>
+                <div class="colores-container">
+                    <input type="radio" name="color" class="color c1" value="blueRed">
+                    <input type="radio" name="color" class="color c2" value="orangePurple">
+                </div>
                 <button form="form1" type="submit" class="crear-proyecto">Crear</button>
             </form>
         </div>
-    
     </div>
 
     <script src="js/proyectos.js"></script>
