@@ -15,7 +15,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de datos: `procastin`
@@ -32,7 +32,7 @@ CREATE TABLE `contactos` (
   `NombreContacto` varchar(30) NOT NULL,
   `DescContacto` text NOT NULL,
   `IdUsuario` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `contactos`
@@ -54,7 +54,7 @@ CREATE TABLE `logros` (
   `DifiLogro` int NOT NULL,
   `ExpLogro` int NOT NULL,
   `ImgLogro` blob
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `logros`
@@ -72,10 +72,10 @@ INSERT INTO `logros` (`IdLogro`, `NomLogro`, `DescLogro`, `DifiLogro`, `ExpLogro
 CREATE TABLE `logrosdeusuario` (
   `IdUsuario` int NOT NULL,
   `IdLogro` int NOT NULL,
-  `NomUsuario` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `NomLogro` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `NomUsuario` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `NomLogro` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `FechaObtencionLogro` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `logrosdeusuario`
@@ -92,11 +92,11 @@ INSERT INTO `logrosdeusuario` (`IdUsuario`, `IdLogro`, `NomUsuario`, `NomLogro`,
 
 CREATE TABLE `medallas` (
   `IdMedalla` int NOT NULL,
-  `NomMedalla` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `NomMedalla` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `DescMedalla` text NOT NULL,
   `DifiMedalla` int NOT NULL,
   `ImgMedalla` blob
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `medallas`
@@ -115,9 +115,9 @@ CREATE TABLE `medallasdeusuario` (
   `IdUsuario` int NOT NULL,
   `IdMedalla` int NOT NULL,
   `NomUsuario` varchar(30) NOT NULL,
-  `NomMedalla` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `NomMedalla` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `FechaObtencionMedalla` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `medallasdeusuario`
@@ -139,9 +139,9 @@ CREATE TABLE `tareas` (
   `DescTarea` text NOT NULL,
   `FechaIniTarea` date NOT NULL,
   `DifiTarea` int NOT NULL,
-  `TipoTarea` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `TipoTarea` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `IdUsuario` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `tareas`
@@ -166,7 +166,7 @@ CREATE TABLE `usuarios` (
   `TareasRealizadas` int NOT NULL,
   `ExpUsuario` bigint NOT NULL,
   `RangoUsuario` smallint NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`

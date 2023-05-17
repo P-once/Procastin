@@ -214,6 +214,9 @@ header {
   }
 }
 /* sections and title */
+.title{
+  margin-top: 5vh;
+}
 .title h2 {
   text-align: center;
   text-transform: uppercase;
@@ -228,6 +231,16 @@ header {
 #idea {
   background: #fffcf0;
 }
+p {
+  width: 70%;
+  margin: 0 auto;
+}
+.info-img {
+  display: block;
+  width: 40%;
+  margin: 5vh auto 0;
+}
+
 footer {
   background: #32323E;
   padding: 5rem 1rem;

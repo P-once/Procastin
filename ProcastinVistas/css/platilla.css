@@ -7,13 +7,18 @@
     box-sizing: border-box;
     font-family:"poppins",sans-serif;
 }
+body{
+    position: relative;
+    padding-bottom: 250px;
+    min-height: 100vh;
+}
 /*Header*/
 .header
 {
-    position:fixed;
-    top: 1%;
-    left: 5%;
-    width: 90%;
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
     padding: 25px 13%;
     background: #32323E;
     display: flex;
@@ -41,7 +46,7 @@
     left: 0;
     width: 100%;
     height:2px ;
-    background-color:fffcf1;
+    background-color: #fffcf1;
     bottom: -5px;
     border-radius: 5px;
     transform: translateY(10px);
