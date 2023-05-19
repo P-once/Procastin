@@ -1,3 +1,4 @@
+<!-- <?php include 'server.php';?> -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,14 +19,15 @@
 
 
 
-        <form class="form-registro">
+        <form class="form-registro" method="post" action="registro.php">
             <h3 class="ingresar-texto">Ingresa los datos para crear una cuenta</h3>
+            <!-- <?php include('errors.php'); ?> -->
             <label class="registro-texto" for="usuario">Username</label>
-            <input class="registro-info" type="text" id="usuario">
+            <input class="registro-info" type="text" id="usuario" name="usuario">
             <label class="registro-texto" for="password">Password</label>
-            <input class="registro-info" type="password" id="password">
+            <input class="registro-info" type="password" id="password" name="password">
             <label class="registro-texto" for="correo">Correo</label>
-            <input class="registro-info" type="email" id="correo">
+            <input class="registro-info" type="email" id="correo" name="correo">
             <a href="PerfilUsuario.html">
             <input class="registro-fin" type="submit" value="Submit"></a>
             <div>

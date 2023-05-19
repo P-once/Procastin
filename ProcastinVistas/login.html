@@ -1,4 +1,4 @@
-<?php include 'server.php';?>
+<!-- <?php include 'server.php';?> -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,13 +25,14 @@
                 <h3 class="bienvenido-texto">Bienvenido a Procastin </h3>
                 <img class="bienvenido-img" src="https://img.freepik.com/free-vector/task-management-abstract-concept-illustration_335657-2127.jpg">
             </div>
-            <form class="form-registro">
+            <form class="form-registro" method="post" action="login.php">
                 <div class="div-ingresar">
                     <h4 class="ingresar-texto">Ingresa tu usuario y constraseña para poder ingresar</h4>
+                    <!-- <?php include('errors.php'); ?> -->
                     <label class="registro-texto" for="usuario">Username</label>
-                    <input class="registro-info" type="text" id="usuario">
+                    <input class="registro-info" type="text" id="usuario" name="usuario">
                     <label class="registro-texto" for="password">Password</label>
-                    <input class="registro-info" type="password" id="password">
+                    <input class="registro-info" type="password" id="password" name="password">
                     <!--corregir boton solo para desmostracion navegacion entre ventanas-->
                     <a href="PerfilUsuario.html"><input class="registro-fin" type="submit" value="Submit" name="login_user"></a>
                     <a href="">¿Olvidaste tu contraseña?</a>
