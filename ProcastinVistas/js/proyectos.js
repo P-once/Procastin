@@ -8,35 +8,8 @@ var span = document.getElementsByClassName("close")[0];
 // Get the button that opens the modal
 var btn = document.getElementById('nuevo-proyecto');
 
-
 //Preview items
-const menu = [
-  {
-    id: 0,
-    title: "Tarea #1",
-    desc: "Descripcion de la tarea numero uno",
-    categoria: "To-do",
-    dificultad: "0",
-  },
-  {
-    id: 1,
-    title: "Tarea #2",
-    desc: "Tarea numero 2, esta es una tarea que es la numero 2",
-    categoria: "To-do",
-  },
-  {
-    id: 2,
-    title: "Tarea #3",
-    desc: "Hacer mas tareas...",
-    categoria: "Diario",
-  },
-  {
-    id: 3,
-    title: "Tarea #4",
-    desc: "En esta tarea se planea hacer cosas como por ejemplo, algo y otra cosa mas.",
-    categoria: "Diario",
-  },
-]
+const menu = proyectos_usuario;
 
 const sectionCenter = document.querySelector('.section-center');
 const container = document.querySelector('.btn-container');
@@ -51,8 +24,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
 function displayMenuButtons () {
   const categories = menu.reduce(function(values, item) {
-    if(!values.includes(item.categoria)) {
-      values.push(item.categoria);
+    if(!values.includes(item.TipoTarea)) {
+      values.push(item.TipoTarea);
     }
     return values;
    }, ['Todos']);
@@ -71,7 +44,7 @@ function displayMenuButtons () {
       }
       else {
         const menuCategory = menu.filter(function (menuItem) {
-          if(menuItem.categoria == category) {
+          if(menuItem.TipoTarea == category) {
             return menuItem;
           }
         });
@@ -85,10 +58,10 @@ function displayMenuItems(menuItems) {
   let displayMenu = menuItems.map(function(item) {
     return `<article class="boton proyecto">
       <div class="titulo defaultT">
-          <p>${item.title}</p>
+          <p>${item.NomTarea}</p>
       </div>
       <div class="descripcion defaultD">
-          <p>${item.desc}</p>
+          <p>${item.DescTarea}</p>
       </div>
     </article>`;
   })
@@ -98,7 +71,16 @@ function displayMenuItems(menuItems) {
   const actividadBtns = document.querySelectorAll('.proyecto');
 
   actividadBtns.forEach(function(btn) {
+    const div = btn.querySelector('.titulo');
+    const titulo = div.querySelector('p').innerHTML;
+    const info = menu.filter(function (item) {
+      if(item.NomTarea == titulo) {
+        return item;
+      }
+    });
     btn.addEventListener('click', function(e) {
+      document.getElementById('titulo-tarea').value = titulo;
+      document.getElementById('descripcion-tarea').value = info[0].DescTarea;
       modal.style.display = "block";
     })
   });
@@ -132,11 +114,13 @@ const nuevo = document.querySelector('.crear-proyecto');
 //Crear nueva tarea
 nuevo.addEventListener('click', function()
 {       ///Boton deberia usar 'submit'
+  if(document.getElementById('titulo-tarea').value != "") {
     let titulo = document.getElementById('titulo-tarea').value;
     let descripcion = document.getElementById('descripcion-tarea').value;
     let tipo = document.querySelector('input[name="type"]:checked').value;
     console.log(tipo);
-    console.log("hello");
+    console.log(JSON.stringify(proyectos_usuario));
+    console.log(id);
 
     const divButton = document.createElement("ARTICLE");
     divButton.id = "proyecto-boton";
@@ -185,10 +169,14 @@ nuevo.addEventListener('click', function()
         divDescripcion.setAttribute("class", "descripcion defaultD");
     }
 
+    /*
     document.getElementById('titulo-tarea').value = "";
     document.getElementById('descripcion-tarea').value = "";
     clearRadioButtons();
     modal.style.display = "none";
+    */
+  }
+
 });
 
 function clearRadioButtons(){

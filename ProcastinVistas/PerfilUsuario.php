@@ -1,3 +1,5 @@
+<?php include("checkLogin.php"); ?> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,13 +11,12 @@
 <body>
     <!--Header generico :)-->
     <header class="header">
-        <a href="principal.html"><img class="navbar-img" src="img/logo_sin_background.png" width="25px" height="25px">Procastin</a>
 
         <nav class="NavBar" >
-            <a href="PerfilUsuario.html">Perfil</a>
+            <a href="PerfilUsuario.php">Perfil</a>
             <a href="#">Amigos</a>
-            <a href="proyectos.html">Proyectos</a>
-            <a href="principal.html">Home</a>
+            <a href="proyectos.php">Proyectos</a>
+            <a href="PerfilUsuario.php?logout='1'">Logout</a>
         </nav>
         <form action="" class="search-bar">
             <input type="text" placeholder="Buscar...">
@@ -27,13 +28,13 @@
 
     <!---perfil --->
     <div class="Perfil">
-        <img id="ImagenPerfil" src="img/OIP.jpg" alt="">
-        <div class="info">
-            <ul>
-                <li>Nombre</li>
-                <li>Experiencia</li>
-            </ul>
-        </div>
+			<img id="ImagenPerfil" src="img/OIP.jpg" alt="">
+			<div class="info">
+				<ul>
+					<li class="WhiteText"><?php echo $_SESSION['username']; ?></li>
+					<li>Experiencia</li>
+				</ul>
+			</div>
     </div>
     
 
