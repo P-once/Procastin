@@ -32,9 +32,10 @@
             <input class="registro-fin" type="submit" value="Submit"  name="reg_user"></a>
             <div>
                 <input class="registro-terminos" type="checkbox" id="terminos">
-                <label class="link-terminos" for="terminos" ><a href="">Acepta los terminos y condiciones</a></label>
+                <label class="link-terminos" for="terminos" ><a href="TermCond.html">Acepta los terminos y condiciones</a></label>
             </div>
         </form>
+        
 
 
         <!--footer generico-->
