@@ -1,6 +1,6 @@
 // Get the modal
 var modal = document.getElementById("myModal");
-
+var boton_proyectos = document.getElementById('boton_proyectos');
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
@@ -10,85 +10,103 @@ var btn = document.getElementById('nuevo-proyecto');
 
 //Preview items
 const menu = proyectos_usuario;
+console.log(JSON.stringify(menu));
 
 const sectionCenter = document.querySelector('.section-center');
 const container = document.querySelector('.btn-container');
 
 //Cuando carga la pagina
 window.addEventListener('DOMContentLoaded', function() {
-   displayMenuItems(menu);
+    displayMenuItems(menu);
 
-   displayMenuButtons();
+    displayMenuButtons();
 });
 
 
 function displayMenuButtons () {
-  const categories = menu.reduce(function(values, item) {
-    if(!values.includes(item.TipoTarea)) {
-      values.push(item.TipoTarea);
-    }
-    return values;
-   }, ['Todos']);
-   const categoriaBtns = categories.map(function(categoria) {
-    return `<button class="filter-btn" data-id ="${categoria}">${categoria}</button>`
-   }).join("");
-   container.innerHTML = categoriaBtns;
-   const filterBtns = document.querySelectorAll('.filter-btn');
+  if(JSON.stringify(menu) != 'null') {
+    const categories = menu.reduce(function(values, item) {
+      if(!values.includes(item.TipoTarea)) {
+        values.push(item.TipoTarea);
+      }
+      return values;
+    }, ['Todos']);
+    const categoriaBtns = categories.map(function(categoria) {
+      return `<button class="filter-btn" data-id ="${categoria}">${categoria}</button>`
+    }).join("");
+    container.innerHTML = categoriaBtns;
+    const filterBtns = document.querySelectorAll('.filter-btn');
 
-  filterBtns.forEach(function(btn) {
-    btn.addEventListener('click', function(e) {
-      const category = e.currentTarget.dataset.id;
-  
-      if(category == 'Todos') {
-        displayMenuItems(menu);
-      }
-      else {
-        const menuCategory = menu.filter(function (menuItem) {
-          if(menuItem.TipoTarea == category) {
-            return menuItem;
-          }
-        });
-        displayMenuItems(menuCategory);
-      }
-    })
-  });
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        const category = e.currentTarget.dataset.id;
+    
+        if(category == 'Todos') {
+          displayMenuItems(menu);
+        }
+        else {
+          const menuCategory = menu.filter(function (menuItem) {
+            if(menuItem.TipoTarea == category) {
+              return menuItem;
+            }
+          });
+          displayMenuItems(menuCategory);
+        }
+      })
+    });
+  }
 };
 
 function displayMenuItems(menuItems) {
-  let displayMenu = menuItems.map(function(item) {
-    return `<article class="boton proyecto">
-      <div class="titulo defaultT">
-          <p>${item.NomTarea}</p>
-      </div>
-      <div class="descripcion defaultD">
-          <p>${item.DescTarea}</p>
-      </div>
-    </article>`;
-  })
-  displayMenu = displayMenu.join("");
-  sectionCenter.innerHTML = displayMenu;
-
-  const actividadBtns = document.querySelectorAll('.proyecto');
-
-  actividadBtns.forEach(function(btn) {
-    const div = btn.querySelector('.titulo');
-    const titulo = div.querySelector('p').innerHTML;
-    const info = menu.filter(function (item) {
-      if(item.NomTarea == titulo) {
-        return item;
-      }
-    });
-    btn.addEventListener('click', function(e) {
-      document.getElementById('titulo-tarea').value = titulo;
-      document.getElementById('descripcion-tarea').value = info[0].DescTarea;
-      modal.style.display = "block";
+  if(JSON.stringify(menu) != 'null') {
+    let displayMenu = menuItems.map(function(item) {
+      return `<article class="boton proyecto">
+        <div class="titulo defaultT">
+            <p>${item.NomTarea}</p>
+        </div>
+        <div class="descripcion defaultD">
+            <p>${item.DescTarea}</p>
+        </div>
+      </article>`;
     })
-  });
+    displayMenu = displayMenu.join("");
+    sectionCenter.innerHTML = displayMenu;
+
+    const actividadBtns = document.querySelectorAll('.proyecto');
+
+    actividadBtns.forEach(function(btn) {
+      const div = btn.querySelector('.titulo');
+      const titulo = div.querySelector('p').innerHTML;
+      const info = menu.filter(function (item) {
+        if(item.NomTarea == titulo) {
+          return item;
+        }
+      });
+      btn.addEventListener('click', function(e) {
+        document.getElementById('titulo-tarea').value = titulo;
+        document.getElementById('descripcion-tarea').value = info[0].DescTarea;
+        document.getElementById(info[0].TipoTarea).checked = true;
+        document.querySelector('.rating').style.setProperty("--value", info[0].DifiTarea);
+        modal.style.display = "block";
+        boton_proyectos.classList.add('update_proyecto');
+        boton_proyectos.classList.remove('crear_proyecto');
+        boton_proyectos.innerHTML = "Actualizar";
+        boton_proyectos.name = 'update_proyecto';
+        document.getElementById('titulo-tarea').readOnly = true;
+      })
+    });
+  }
 }
 
  // When the user clicks on the button, open the modal
  btn.onclick = function() {
   modal.style.display = "block";
+  document.querySelector('.rating').style.setProperty("--value", 1);
+  boton_proyectos.classList.add('crear_proyecto');
+  boton_proyectos.classList.remove('update_proyecto');
+  boton_proyectos.innerHTML = "Crear";
+  boton_proyectos.name = 'crear_proyecto';
+  document.getElementById('titulo-tarea').readOnly = false;
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -147,6 +165,7 @@ nuevo.addEventListener('click', function()
     divTitle.appendChild(pTitle);
     divDescripcion.appendChild(pDescripcion);
 
+    /*
     let color;
     try {
       color = document.querySelector('input[name="color"]:checked').value

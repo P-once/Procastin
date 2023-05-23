@@ -9,8 +9,12 @@
  	$query = "SELECT * FROM tareas WHERE IdUsuario='$id'";
 	$result = mysqli_query($db, $query);
 
-	while($row = mysqli_fetch_assoc($result)){
-		$tareas[] = $row;
+	if(mysqli_num_rows($result) < 1) {
+		$tareas = null;
+	} else {
+		while($row = mysqli_fetch_assoc($result)){
+			$tareas[] = $row;
+		}
 	}
 
 
@@ -80,13 +84,13 @@
         <div class="modal-content">
             <span class="close">Cancel</span>
             <form class="form-modal" method="post" action="proyectos.php">
-                <label class="texto-info" for="titulo-tarea">Crear tarea</label>
+                <label class="texto-info" >Crear tarea</label>
                 <div class="radio-container">
-                    <input class="tipo-radio" type="radio" name="type" id="to-do" value="to-do" checked name="to-do">
+                    <input class="tipo-radio" type="radio" name="type" id="To-do" value="To-do" checked>
                     <label for="to-do" class="todo">
                         <span class="span-tipo">To-do</span>
                     </label>
-                    <input class="tipo-radio" type="radio" name="type" id="daily" value="daily" name="daily">
+                    <input class="tipo-radio" type="radio" name="type" id="Daily" value="Daily">
                     <label for="daily" class="diario">
                         <span class="span-tipo">Daily</span>
                     </label>
@@ -94,32 +98,34 @@
                 <div>
                       <label class="rating-label">Dificultad de la actividad
                         <input
+													id="dificultad"
                           class="rating"
                           max="5"
                           oninput="this.style.setProperty('--value', this.value)"
                           step="1"
-                          style="--stars:5;--value:2"
+                          style="--stars:5;--value:1"
                           type="range"
-                          value="2"
-													name="dificultad" >
+						    					name="dificultad" >
                       </label>
                 </div>
                 <div class="informacion-texto">
                     <input type="text" id="titulo-tarea" class="tarea-info" required placeholder="Titulo:" name="titulo" >
                     <textarea class="tarea-info" id="descripcion-tarea" placeholder="Descripcion: (Opcional)" name="descripcion" ></textarea>
                 </div>
+								<!--
                 <div class="colores-container">
                     <input type="radio" name="color" class="color c1" value="blueRed">
                     <input type="radio" name="color" class="color c2" value="orangePurple">
                 </div>
-                <button type="submit" class="crear-proyecto" name="crear_proyecto">Crear</button>
+								-->
+                <button type="submit" id="boton_proyectos" class="crear-proyecto" name="crear_proyecto">Crear</button>
             </form>
         </div>
     </div>
 
     <script> 
         var proyectos_usuario = <?php echo json_encode($tareas); ?>;
-				var id = "<?php echo $id ?>"
+				var id = "<?php echo $id ?>";
     </script>
     <script src="js/proyectos.js"></script>
 </body>

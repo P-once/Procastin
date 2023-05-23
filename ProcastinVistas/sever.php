@@ -68,6 +68,7 @@
 				$_SESSION['username'] = $username;
 				$_SESSION['success'] = "You are now logged in";
 				header('location: PerfilUsuario.php');
+
 			}else {
 				array_push($errors, "Combinacion incorrecta de usuario/contraseña");
 			}
@@ -78,14 +79,31 @@
 	if(isset($_POST['crear_proyecto'])) {
 		$titulo = mysqli_real_escape_string($db, $_POST['titulo']);
 		$descripcion = mysqli_real_escape_string($db, $_POST['descripcion']);
+		$tipo = $_POST['type'];
+		$dificultad = $_POST['dificultad'];
+
+		$user = $_SESSION['username'];
+		$id_query = "SELECT IdUsuario FROM usuarios WHERE NomUsuario='$user'";
+		$result = mysqli_query($db, $id_query);
+		$id_arr = mysqli_fetch_assoc($result);
+		$id = $id_arr['IdUsuario'];
+
+		$query = "SELECT * FROM tareas WHERE IdUsuario='$id'";
+		$result = mysqli_query($db, $query);
+
+		while($row = mysqli_fetch_assoc($result)){
+			if($row['NomTarea'] == $titulo) {
+				array_push($errors, "Ya tienes una tarea con este nombre");
+			}
+		}
 
 		if (empty($titulo)) {
 			array_push($errors, "Se requiere nombre de usuario");
 		}
 
 		if (count($errors) == 0) {
-			$date = date('m/d/Y');
-			$query = "INSERT INTO tareas (NomTarea, ExpTarea, DescTarea, FechaIniTarea, DifiTarea, TipoTarea, IdUsuario) VALUES ('$titulo', 50, '$descripcion', '$date', 1, 'Daily', 2)";
+			$date = date('Y/m/d');
+			$query = "INSERT INTO tareas (NomTarea, ExpTarea, DescTarea, FechaIniTarea, DifiTarea, TipoTarea, IdUsuario) VALUES ('$titulo', 50, '$descripcion', '$date', '$dificultad', '$tipo', $id)";
 
 			mysqli_query($db, $query);
 		}else {
@@ -93,4 +111,25 @@
 		}
 	}
   
+	if(isset($_POST['update_proyecto'])) {
+		$titulo = mysqli_real_escape_string($db, $_POST['titulo']);
+		$descripcion = mysqli_real_escape_string($db, $_POST['descripcion']);
+		$tipo = $_POST['type'];
+		$dificultad = $_POST['dificultad'];
+
+		$query = "SELECT * FROM tareas WHERE NomTarea='$titulo'";
+		$result = mysqli_query($db, $query);
+
+		if (empty($titulo)) {
+			array_push($errors, "Se requiere nombre de usuario");
+		}
+
+		if (count($errors) == 0) {
+			$query = "UPDATE tareas SET DescTarea='$descripcion', DifiTarea='$dificultad', TipoTarea='$tipo' WHERE NomTarea='$titulo'";
+
+			mysqli_query($db, $query);
+		}else {
+			array_push($errors, "Combinacion incorrecta de usuario/contraseña");
+		}
+	}
 ?>
