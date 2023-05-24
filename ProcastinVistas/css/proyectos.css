@@ -152,12 +152,28 @@ body {
     flex-direction: column;
 }
 
+.completed {
+  -webkit-filter: grayscale(1);
+}
+
 .titulo {
     font-size: 30px;
     height: 20%;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.titulo p {
+  margin: 0 auto;
+}
+
+.titulo input {
+  position: absolute;
+  margin-top: 2vh;
+  margin-left: 2vw;
 }
 
 .defaultT {

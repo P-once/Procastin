@@ -73,6 +73,19 @@
                     <p>Descripcion de la actividad</p>
                 </div>
             </article>
+
+
+            //JAVASCRIPT
+            let displayMenu = menuItems.map(function(item) {
+            return `<article class="boton proyecto">
+                <div class="titulo defaultT">
+                    <p>${item.NomTarea}</p>
+                </div>
+                <div class="descripcion defaultD">
+                    <p>${item.DescTarea}</p>
+                </div>
+            </article>`;
+            })
             -->
         </section>
     </section>
@@ -87,11 +100,11 @@
                 <label class="texto-info" >Crear tarea</label>
                 <div class="radio-container">
                     <input class="tipo-radio" type="radio" name="type" id="To-do" value="To-do" checked>
-                    <label for="to-do" class="todo">
+                    <label for="To-do" class="todo">
                         <span class="span-tipo">To-do</span>
                     </label>
                     <input class="tipo-radio" type="radio" name="type" id="Daily" value="Daily">
-                    <label for="daily" class="diario">
+                    <label for="Daily" class="diario">
                         <span class="span-tipo">Daily</span>
                     </label>
                 </div>

@@ -57,11 +57,36 @@ function displayMenuButtons () {
   }
 };
 
+
+function completedItems() {
+  var divs = document.querySelectorAll('.proyecto');
+  var contain = document.getElementById('section-center');
+  
+  var completes = [];
+  
+  divs.forEach(function(div, index) {
+    //console.log(div);
+    if(div.classList.contains('completed')) { 
+      console.log("aaaa");
+      completes.push(div);
+      div.remove();
+    }
+  })
+  console.log(completes);
+  if(completes.length > 0) {
+    completes.forEach(function(div) {
+      contain.appendChild(div);
+    })
+  }
+  console.log(divs.length);
+}
+
 function displayMenuItems(menuItems) {
   if(JSON.stringify(menu) != 'null') {
     let displayMenu = menuItems.map(function(item) {
       return `<article class="boton proyecto">
         <div class="titulo defaultT">
+            <input type="checkbox" id="complete" name="complete" value="complete" class="complete">
             <p>${item.NomTarea}</p>
         </div>
         <div class="descripcion defaultD">
@@ -83,18 +108,35 @@ function displayMenuItems(menuItems) {
         }
       });
       btn.addEventListener('click', function(e) {
-        document.getElementById('titulo-tarea').value = titulo;
-        document.getElementById('descripcion-tarea').value = info[0].DescTarea;
-        document.getElementById(info[0].TipoTarea).checked = true;
-        document.querySelector('.rating').style.setProperty("--value", info[0].DifiTarea);
-        modal.style.display = "block";
-        boton_proyectos.classList.add('update_proyecto');
-        boton_proyectos.classList.remove('crear_proyecto');
-        boton_proyectos.innerHTML = "Actualizar";
-        boton_proyectos.name = 'update_proyecto';
-        document.getElementById('titulo-tarea').readOnly = true;
+        if(e.target.tagName !== 'INPUT') {
+          console.log(btn.tagName);
+          document.getElementById('titulo-tarea').value = titulo;
+          document.getElementById('descripcion-tarea').value = info[0].DescTarea;
+          document.getElementById(info[0].TipoTarea).checked = true;
+          document.querySelector('.rating').style.setProperty("--value", info[0].DifiTarea);
+          modal.style.display = "block";
+          boton_proyectos.classList.add('update_proyecto');
+          boton_proyectos.classList.remove('crear_proyecto');
+          boton_proyectos.innerHTML = "Actualizar";
+          boton_proyectos.name = 'update_proyecto';
+          document.getElementById('titulo-tarea').readOnly = true;
+        }
       })
     });
+
+    const checks = document.querySelectorAll('.complete')
+    checks.forEach(function(check) {
+      check.addEventListener('change', function(e) {
+        console.log(check.parentElement.parentElement.className);
+        if (this.checked) {
+          check.parentElement.parentElement.classList.add("completed");
+        } else {
+          check.parentElement.parentElement.classList.remove("completed");
+        }
+        console.log(check.parentElement.parentElement.className);
+        completedItems();
+      })
+    })
   }
 }
 
