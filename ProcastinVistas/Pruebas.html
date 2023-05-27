@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Pruebas.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="Perfil">
+        <div class="FotoPerfil">
+            <img name="ImagenPerfil" src="img/OIP.jpg" alt="">
+        </div>
+            <div class="info">
+                <ul>    
+                    <li class="WhiteText"><?php echo $_SESSION['username']; ?><hr></li>
+                    <li class="WhiteText"><?php echo $Desc; ?><hr></li>
+                    <li>
+                        <div class="Barra"> 
+                            Experiencia: <?php echo $XP;?> xp
+                            <div class="bXP"><div class="XP" style="--w:100%"></div></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="Sec-Logros">
+            <a href="Logros.html" id="Logros-Btn" class="Logros-Btn">
+                <img src="img/Trofeo.png" alt="Imagen" id="Logro-img">
+            </a>
+            </div>
+    
+    </div>
+</body>
+</html>

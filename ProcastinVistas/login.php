@@ -91,9 +91,8 @@
         <div class="saber">
             <a href="https://github.com/P-once/Procastin"><img src="img/github_PNG40.png"/></a>
             <br>
-            <a href="">Saber mas</a>
-            <a href="">Terminos</a>
-            <a href="">Condiciones</a><br>
+            <a href="#">Saber mas</a>
+            <a href="TermCond.html" target="_blanck">Terminos Condiciones</a><br>
         </div>
         <hr>
         <div class="chiquito">

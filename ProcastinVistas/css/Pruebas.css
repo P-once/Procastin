@@ -1,0 +1,63 @@
+.Perfil
+{
+    background-color: #363636;
+    position: relative;
+    margin-top: 10%;
+   margin-left: 5%;
+    width: 90%;
+    height: 300px;
+}
+.Perfil .FotoPerfil
+{
+    width: 30%;
+    height: 100%;
+    align-content: center;
+}
+.Perfil .FotoPerfil img
+{
+    margin: 10%;
+    padding: 2%;
+    width: 70%;
+    height: 80%;
+
+}
+.Perfil .info
+{
+    position: absolute;
+    top: 20%;
+    left:30%;
+}
+ul
+{
+    list-style: none;
+    font-family:'Times New Roman', Times, serif;
+    font-size: larger;
+    color: #fff;
+    
+}
+li
+{
+    margin: top 20px;
+    margin-bottom: 20px;
+}
+.Perfil .Sec-Logros
+{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: auto;
+}
+.Perfil .Sec-Logros a img
+{
+    position: absolute;
+    right: 1px;
+    width: 30px;
+    height: auto;
+}
+.Perfil .Sec-Logros a img:hover
+{
+    translate: -100px 100px;
+    transform: rotate(360deg)  scale(8);
+    transition: 1s;
+}
