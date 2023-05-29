@@ -42,19 +42,41 @@ h1
 .Cnt-Logros .Sec-Diarias
 {
     background-color: #40476D;
+    color: wheat;
 }
-.Cnt-Logros .Sec-Diarias .Tarea
+
+.Tarea
 {
-    padding: 5px;
+    padding: 1px;
     margin: 5px;
     border-radius: 1px;
     background-color: #1B9AAA;
 
 }
-.Cnt-Logros .Sec-Diarias .Tarea:hover
+.Tarea:hover
 {
     background-color: #F6BE00;
+    color: #212121;
+    
 }
+.Desc-Tarea
+{
+    overflow: hidden;
+    max-height: 0;
+    transition: all .2s ease-in;
+
+
+}
+.Tarea:hover .Desc-Tarea
+{
+    overflow:visible;
+    transition: .4s;
+    max-height: 50px;
+    padding: auto;
+    color: #212121;
+    transition: .2s;
+}
+/*Flecha regreso*/
 
 .regresar a
 {
@@ -71,6 +93,6 @@ h1
 .regresar a:hover
 {
     transition: 1s;
-    
     color: #F6BE00;
 }
+
