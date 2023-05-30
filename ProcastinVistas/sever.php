@@ -132,4 +132,18 @@
 			array_push($errors, "Combinacion incorrecta de usuario/contraseña");
 		}
 	}
+
+	if(isset($_POST['complete_submit'])) {
+		$titulo = mysqli_real_escape_string($db, $_POST['titulo_hidden']);
+		$completada = isset($_POST['completly_hidden']);
+
+		$query = "UPDATE tareas SET Completado='$completada' WHERE NomTarea='$titulo'";
+		mysqli_query($db, $query);
+
+		if (count($errors) == 0) {
+			
+		}else {
+			array_push($errors, "Combinacion incorrecta de usuario/contraseña");
+		}
+	}
 ?>

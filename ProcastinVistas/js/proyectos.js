@@ -7,6 +7,7 @@ var span = document.getElementsByClassName("close")[0];
 
 // Get the button that opens the modal
 var btn = document.getElementById('nuevo-proyecto');
+var vista = document.getElementById('cambiar_vista');
 
 //Preview items
 const menu = proyectos_usuario;
@@ -20,6 +21,8 @@ window.addEventListener('DOMContentLoaded', function() {
     displayMenuItems(menu);
 
     displayMenuButtons();
+
+		completedItems();
 });
 
 
@@ -59,40 +62,55 @@ function displayMenuButtons () {
 
 
 function completedItems() {
+  //console.log("completed");
   var divs = document.querySelectorAll('.proyecto');
   var contain = document.getElementById('section-center');
   
   var completes = [];
   
   divs.forEach(function(div, index) {
-    //console.log(div);
+    //console.log(div.classList);
     if(div.classList.contains('completed')) { 
       console.log("aaaa");
       completes.push(div);
       div.remove();
     }
   })
-  console.log(completes);
+  //console.log(completes);
   if(completes.length > 0) {
     completes.forEach(function(div) {
       contain.appendChild(div);
     })
   }
-  console.log(divs.length);
+  //console.log(divs.length);
 }
 
 function displayMenuItems(menuItems) {
   if(JSON.stringify(menu) != 'null') {
     let displayMenu = menuItems.map(function(item) {
-      return `<article class="boton proyecto">
+      console.log(item.Completado);
+      if(item.Completado == 1){
+      return `<article class="boton proyecto completed" id="${item.NomTarea}">
         <div class="titulo defaultT">
-            <input type="checkbox" id="complete" name="complete" value="complete" class="complete">
-            <p>${item.NomTarea}</p>
+					<input type="checkbox" name="complete" value="1" class="complete" checked>
+					<p name="nomTarea">${item.NomTarea}</p>
         </div>
         <div class="descripcion defaultD">
             <p>${item.DescTarea}</p>
         </div>
       </article>`;
+      } else {
+        return `<article class="boton proyecto id="${item.NomTarea}">
+        <div class="titulo defaultT">
+
+					<input type="checkbox" name="complete" value="1" class="complete">
+					<p name="nomTarea">${item.NomTarea}</p>
+        </div>
+        <div class="descripcion defaultD">
+            <p>${item.DescTarea}</p>
+        </div>
+      </article>`;
+      }
     })
     displayMenu = displayMenu.join("");
     sectionCenter.innerHTML = displayMenu;
@@ -127,16 +145,29 @@ function displayMenuItems(menuItems) {
     const checks = document.querySelectorAll('.complete')
     checks.forEach(function(check) {
       check.addEventListener('change', function(e) {
-        console.log(check.parentElement.parentElement.className);
+        console.log(check.parentElement.parentElement);
         if (this.checked) {
           check.parentElement.parentElement.classList.add("completed");
+					check.value = 1;
+
+					document.getElementById('completly_hidden').checked = true;
+					document.getElementById('titulo_hidden').value = check.parentElement.lastElementChild.innerHTML;
+          console.log(check.parentElement.lastElementChild.innerHTML)
+
+          //console.log(check.parentElement.parentElement.id);
         } else {
           check.parentElement.parentElement.classList.remove("completed");
+					document.getElementById('completly_hidden').checked = false;
+					document.getElementById('titulo_hidden').value = check.parentElement.lastElementChild.innerHTML;
         }
         console.log(check.parentElement.parentElement.className);
-        completedItems();
+        //completedItems();
+				//document.getElementById("complete_form").submit;
+        document.getElementById("complete_submit").click();
       })
     })
+
+		completedItems();
   }
 }
 
@@ -149,6 +180,13 @@ function displayMenuItems(menuItems) {
   boton_proyectos.innerHTML = "Crear";
   boton_proyectos.name = 'crear_proyecto';
   document.getElementById('titulo-tarea').readOnly = false;
+}
+
+vista.onclick = function() {
+	const actividadBtns = document.querySelectorAll('.proyecto');
+	actividadBtns.forEach(function(btn) {
+
+	})
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -174,7 +212,7 @@ const nuevo = document.querySelector('.crear-proyecto');
 //Crear nueva tarea
 nuevo.addEventListener('click', function()
 {       ///Boton deberia usar 'submit'
-  if(document.getElementById('titulo-tarea').value != "") {
+  if(document.getElementById('titulo-tarea').value != "" && nuevo.name != "update_proyecto") {
     let titulo = document.getElementById('titulo-tarea').value;
     let descripcion = document.getElementById('descripcion-tarea').value;
     let tipo = document.querySelector('input[name="type"]:checked').value;

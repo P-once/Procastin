@@ -14,6 +14,9 @@
     padding: 0;
     box-sizing: border-box;
     font-family:"poppins",sans-serif;
+		
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 body {
@@ -132,15 +135,20 @@ body {
     color: #FF4742;
 }
 
+.cambiar_vista {
+	border-radius: 6px;
+	padding: 12px 14px;
+  text-align: center;
+	margin-right: 1vh;
+}
+
 .boton {
     width: 20vw;
     height: 28vh;
-    background-color: rgb(192, 192, 187);
-    border-color: #888;
-    border-radius: 10px;
+    border-radius: 11px;
 }
 
-.boton:hover {
+.boton:hover .boton_2:hover{
     transform: scale(1.1);
   }
 
@@ -170,11 +178,52 @@ body {
   margin: 0 auto;
 }
 
-.titulo input {
+.descripcion {
+	height: 80%;
+	padding: 10px;
+	font-size: 20px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.descripcion p {
+	margin-top: 0;
+	color: white;
+}
+
+.complete {
   position: absolute;
   margin-top: 2vh;
-  margin-left: 2vw;
+  margin-left: 1vw;
 }
+.delete {
+  position: absolute;
+	margin-top: 2vh;
+	margin-left: 18vw;
+}
+
+.boton_2 {
+	width: 100%;
+	height: 28vh;
+	border-radius: 10px;
+	align-items: center;
+}
+
+.titulo_2 {
+	font-size: 30px;
+	width: 80%;
+	height: 20%;
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+}
+
+.descripcion_2 {
+	height: 80%;
+	width: 80%;
+	font-size: 20px;
+}
+
 
 .defaultT {
     background-color: var(--color5);
@@ -198,19 +247,6 @@ body {
 
 .purple {
     background-color: purple;
-}
-
-.descripcion {
-    height: 80%;
-    padding: 10px;
-    font-size: 20px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-
-.descripcion p {
-    margin-top: 0;
-    color: white;
 }
 
 

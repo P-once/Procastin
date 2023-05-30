@@ -56,11 +56,20 @@
                 -->
             </div>
 
+						<button id="cambiar_vista" class="cambiar_vista">
+              =
+            </button>
             <!-- "Boton" de nuevas actividades -->
             <button id="nuevo-proyecto" class="nuevo-proyecto">
                 + Nuevo
             </button>
     </div>
+
+		<form id="complete_form" action="proyectos.php" method="post" class="complete_form" style="display:none;">
+      <input type="text" name="titulo_hidden" id="titulo_hidden">
+			<input type="checkbox" id="completly_hidden" name="completly_hidden" value="1">
+			<input type="submit" name="complete_submit" id="complete_submit">
+    </form>
         
     <section id="section-center" class="section-center">
         <!-- Actividad ejemplo -->
