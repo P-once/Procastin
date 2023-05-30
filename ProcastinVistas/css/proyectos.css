@@ -162,6 +162,7 @@ body {
 
 .completed {
   -webkit-filter: grayscale(1);
+  display: hidden;
 }
 
 .titulo {
