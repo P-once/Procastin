@@ -347,8 +347,7 @@ body {
     float: left;
   }
   
-  .close:hover,
-  .close:focus {
+  .close:hover,.close:focus {
     color: rgb(155, 22, 22);
     text-decoration: none;
     cursor: pointer;
@@ -495,4 +494,14 @@ body {
 }
 .rating-label {
   margin-block-end: 1rem;
+}
+
+
+
+
+  #filter-btn:hover
+{
+  background-color: var(--color1);
+  cursor: pointer;
+
 }
