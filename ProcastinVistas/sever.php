@@ -1,5 +1,4 @@
 <?php
-	session_start();
 
 	//Inicializacion de variables
 	$username = "";
@@ -35,6 +34,7 @@
 
 		//Registrar al usuario
 		if(count($errors) == 0) {
+			session_start();
 			//$password = md5($password);
 
 			$query = "INSERT INTO usuarios (NomUsuario, ContraseniaUsuario, CorreoUsuario) VALUES ('$username', '$password', '$email')";
@@ -49,6 +49,7 @@
 
 	// LOGIN USER
 	if (isset($_POST['login_user'])) {
+		session_start();
 		$username = mysqli_real_escape_string($db, $_POST['usuario']);
 		$password = mysqli_real_escape_string($db, $_POST['password']);
 

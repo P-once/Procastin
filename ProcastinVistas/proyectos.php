@@ -33,9 +33,11 @@
     <!--Header generico :)-->
     <header class="header">
 
-        <nav class="NavBar" >
+		<nav class="NavBar" >
             <a href="PerfilUsuario.php">Perfil</a>
+            <a href="amigos.php">Amigos</a>
             <a href="proyectos.php">Proyectos</a>
+            <a href="PerfilUsuario.php?logout='1'">Logout</a>
         </nav>
         <form action="" class="search-bar">
             <input type="text" placeholder="Buscar...">
