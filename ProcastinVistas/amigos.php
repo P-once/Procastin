@@ -13,6 +13,17 @@
 	$query = "SELECT * FROM usuarios";
 	$result = mysqli_query($db, $query);
 
+
+	if(mysqli_num_rows($result) < 1) {
+		$usaurios = null;
+	} else {
+		while($row = mysqli_fetch_assoc($result)){
+			$usaurios[] = $row;
+		}
+	}
+
+	$query = "SELECT * FROM usuarios";
+	$result = mysqli_query($db, $query);
 ?> 
 
 
@@ -55,7 +66,6 @@
 						while($row = mysqli_fetch_assoc($amigos)) {
 							while($a = mysqli_fetch_assoc($result)) {
 								if($a['NomUsuario'] == $row['NombreContacto']) {
-									$usaurios[] = $a;
 									$img = $a['ImgUsuario'];
 								}
 							}				
