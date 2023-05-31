@@ -31,7 +31,7 @@ body{
     color:#FFFCF1;
     font-size: 25px;
 }
-Header a img
+#settings  img
 {
     position: absolute;
     top: 15px;
@@ -39,7 +39,7 @@ Header a img
     width: 50px;
 }
 
-Header a img:hover
+#settings img:hover
 {
 
     transform:rotate(360deg) scale(1.3);

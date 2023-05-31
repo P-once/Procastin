@@ -156,7 +156,7 @@ body {
     height: 28vh;
 }
 
-.boton:hover .boton_2:hover{
+.proyecto:hover{
     transform: scale(1.1);
   }
 

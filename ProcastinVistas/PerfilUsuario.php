@@ -11,6 +11,23 @@ include("db.php");
     $result = mysqli_query($db, $XPUs);   
     $XPArry=mysqli_fetch_assoc($result);
     $XP=$XPArry['ExpUsuario'];
+
+
+    $user = $_SESSION['username'];
+	$id_query = "SELECT IdUsuario FROM usuarios WHERE NomUsuario='$user'";
+	$result = mysqli_query($db, $id_query);
+	$id_arr = mysqli_fetch_assoc($result);
+	$id = $id_arr['IdUsuario'];
+ 	$query = "SELECT * FROM tareas WHERE IdUsuario='$id'";
+	$result = mysqli_query($db, $query);
+	
+	if(mysqli_num_rows($result) < 1) {
+		$tareas = null;
+	} else {
+		while($row = mysqli_fetch_assoc($result)){
+			$tareas[] = $row;
+		}
+	}
     
 ?>
 
@@ -41,7 +58,7 @@ include("db.php");
             <button><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAUJJREFUSEu9le0xBEEURc9GQAhEgAzIgAjIABmQARmQgQwQARnYEIiAOlWv1avR3TO7NWOq9sdOd9/z+r6PWbHws1pYnx5gD7gEjoHDCOQdeAHugfWU4FqAuxDvabjnegxSAxjlQRx8BBTynY83uQLO042OepAhoET+FdYU4aGGIK3aCbuEVp8M0POP2GVULfEiJOQt/uy3cpIBJXoT2IxoEOZD2NU8kwHF+ynRD2/h2WouMuA7Tm3aG91zcwEsit1aluey6DWq7g/jX5O8bZlqjyVbHR2tRvsETjq9oOBz+H4L3ExptLInjwrr3BrPo8IBeJEEXTMYg+rmIC+ODTttcc9pzK0mZGxc29GOa4efogr5U1zPLU1nkutVyKZNVXOhC5kDIDRDzoCnEslcgALRzl9xX84JGP0e9D5MW68tfoMfCXxMGRHr0pcAAAAASUVORK5CYII="/></button>
             
         </form>
-        <a href="Ajustes.html">
+        <a id="settings" href="Ajustes.html">
             <img src="img/Settings-PNG.png"  >
         </a>
       
@@ -76,26 +93,27 @@ include("db.php");
 
     </div>
     <!--Tabs-->
-    < <div class="contenedor">
+    <div class="contenedor">
         <div class="titulo">Secion de Tareas</div>
         <div id="pestanas">
             <ul id=lista>
-                <li id="pestana1"><a href='javascript:cambiarPestanna(pestanas,pestana1);'>Diarias</a></li>
-                <li id="pestana2"><a href='javascript:cambiarPestanna(pestanas,pestana2);'>Por hacer</a></li>
+                <li id="pestana1"><a>Diarias</a></li>
+                <li id="pestana2"><a>Por hacer</a></li>
             </ul>
         </div>
 
 
         <div id="contenidopestanas">
-            <div id="cpestana1">
-               <p>Nombre de la tarea</p>
-               <input type="checkbox" name="TareaComp" id="">
-               <p>Descripcion de la tarea</p>
+            <div id="cpestana1" >
             </div>
-            <div id="cpestana2">
-                Contenido de la pestaña 2
+            <div id="cpestana2" >
             </div>
         </div>
+				
+				<div class="section-center"></div>
+				
+				<button class="filter-btn" data-id ="Daily">Daily</button>
+        <button class="filter-btn" data-id ="To-do">To-do</button>
 
         <!--footer generico :)-->
 
@@ -157,6 +175,10 @@ include("db.php");
         </div>
     </div>
 </footer>
+<script> 
+    var proyectos_usuario = <?php echo json_encode($tareas); ?>;
+    var id = "<?php echo $id ?>";
+</script>
 <script src="js/PerfilUsuario.js"></script>
 </body>
 
