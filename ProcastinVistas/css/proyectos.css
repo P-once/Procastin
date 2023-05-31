@@ -171,13 +171,14 @@ body {
 
 .titulo {
   font-size: 30px;
+  font-weight: bold;
   height: 20%;
-
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
 
 .titulo p {
+  margin-top: 20px;
   margin: 0 auto;
 }
 
