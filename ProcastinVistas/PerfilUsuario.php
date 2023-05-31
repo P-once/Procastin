@@ -50,7 +50,7 @@ include("db.php");
         <nav class="NavBar" >
             <a href="PerfilUsuario.php">Perfil</a>
             <a href="amigos.php">Amigos</a>
-            <a href="proyectos.php">Proyectos</a>
+            <a href="proyectos.php">Tareas</a>
             <a href="PerfilUsuario.php?logout='1'">Logout</a>
         </nav>
        
