@@ -20,7 +20,7 @@ const container = document.querySelector('.btn-container');
 window.addEventListener('DOMContentLoaded', function() {
     displayMenuItems(menu);
 
-    displayMenuButtons();
+    //displayMenuButtons();
 
 		completedItems();
 });
@@ -28,6 +28,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 function displayMenuButtons () {
   if(JSON.stringify(menu) != 'null') {
+    /*
     const categories = menu.reduce(function(values, item) {
       if(!values.includes(item.TipoTarea)) {
         values.push(item.TipoTarea);
@@ -38,28 +39,37 @@ function displayMenuButtons () {
       return `<button class="filter-btn" data-id ="${categoria}">${categoria}</button>`
     }).join("");
     container.innerHTML = categoriaBtns;
-    const filterBtns = document.querySelectorAll('.filter-btn');
+    */
 
-    filterBtns.forEach(function(btn) {
-      btn.addEventListener('click', function(e) {
-        const category = e.currentTarget.dataset.id;
-    
-        if(category == 'Todos') {
-          displayMenuItems(menu);
-        }
-        else {
-          const menuCategory = menu.filter(function (menuItem) {
-            if(menuItem.TipoTarea == category) {
-              return menuItem;
-            }
-          });
-          displayMenuItems(menuCategory);
-        }
-      })
-    });
   }
 };
+const filterBtns = document.querySelectorAll('.filter-btn');
 
+filterBtns.forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    const category = e.currentTarget.dataset.id;
+
+    if(category == 'Todos') {
+      displayMenuItems(menu);
+    } 
+    else if(category == 'Completadas') {
+      const menuCategory = menu.filter(function (menuItem) {
+        if(menuItem.Completado == 1) {
+          return menuItem;
+        }
+      });
+      displayMenuItems(menuCategory);
+    }
+    else {
+      const menuCategory = menu.filter(function (menuItem) {
+        if(menuItem.TipoTarea == category) {
+          return menuItem;
+        }
+      });
+      displayMenuItems(menuCategory);
+    }
+  })
+});
 
 function completedItems() {
   //console.log("completed");
@@ -85,31 +95,34 @@ function completedItems() {
   //console.log(divs.length);
 }
 
+function createProject(item, article_class, div1_class, div2_class, checkmark) {
+  return `<article class="proyecto ${article_class}" id="${item.NomTarea}">
+  <div class="titulo defaultT ${div1_class}">
+    <input type="checkbox" name="complete" value="1" class="complete" ${checkmark}>
+    <p name="nomTarea">${item.NomTarea}</p>
+  </div>
+  <div class="descripcion defaultD ${div2_class}">
+      <p>${item.DescTarea}</p>
+  </div>
+</article>`;
+}
+
 function displayMenuItems(menuItems) {
   if(JSON.stringify(menu) != 'null') {
     let displayMenu = menuItems.map(function(item) {
       console.log(item.Completado);
-      if(item.Completado == 1){
-      return `<article class="boton proyecto completed" id="${item.NomTarea}">
-        <div class="titulo defaultT">
-					<input type="checkbox" name="complete" value="1" class="complete" checked>
-					<p name="nomTarea">${item.NomTarea}</p>
-        </div>
-        <div class="descripcion defaultD">
-            <p>${item.DescTarea}</p>
-        </div>
-      </article>`;
+      if(vista.innerHTML == "=") {
+        if(item.Completado == 1){
+          return createProject(item, 'boton completed', 'titulo_1', 'descripcion_1', 'checked')
+        } else {
+          return createProject(item, 'boton', 'titulo_1', 'descripcion_1', '');
+        }
       } else {
-        return `<article class="boton proyecto id="${item.NomTarea}">
-        <div class="titulo defaultT">
-
-					<input type="checkbox" name="complete" value="1" class="complete">
-					<p name="nomTarea">${item.NomTarea}</p>
-        </div>
-        <div class="descripcion defaultD">
-            <p>${item.DescTarea}</p>
-        </div>
-      </article>`;
+        if(item.Completado == 1){
+          return createProject(item, 'boton_2 completed', 'titulo_2', 'descripcion_2', 'checked')
+        } else {
+          return createProject(item, 'boton_2', 'titulo_2', 'descripcion_2', '');
+        }
       }
     })
     displayMenu = displayMenu.join("");
@@ -183,10 +196,32 @@ function displayMenuItems(menuItems) {
 }
 
 vista.onclick = function() {
-	const actividadBtns = document.querySelectorAll('.proyecto');
-	actividadBtns.forEach(function(btn) {
-
-	})
+  const actividadBtns = document.querySelectorAll('.proyecto');
+  if(vista.innerHTML == "=") {
+    actividadBtns.forEach(function(btn) {
+      div1 = btn.firstElementChild;
+      div2 = btn.lastElementChild;
+      btn.classList.add('boton_2');
+      btn.classList.remove('boton');
+      div1.classList.add('titulo_2');
+      div1.classList.remove('titulo_1');
+      div2.classList.add('descripcion_2');
+      div2.classList.remove('descripcion_1');
+      vista.innerHTML = "□";
+    })
+  } else {
+    actividadBtns.forEach(function(btn) {
+      div1 = btn.firstElementChild;
+      div2 = btn.lastElementChild;
+      btn.classList.add('boton');
+      btn.classList.remove('boton_2');
+      div1.classList.add('titulo_1');
+      div1.classList.remove('titulo_2');
+      div2.classList.add('descripcion_1');
+      div2.classList.remove('descripcion_2');
+      vista.innerHTML = "=";
+    })
+  }
 }
 
 // When the user clicks on <span> (x), close the modal

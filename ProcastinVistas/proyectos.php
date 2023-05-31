@@ -48,17 +48,13 @@
         <!-- Filter Buttons -->
         <div class="botones">
             <div class="btn-container">
-                <!--
                 <button class="filter-btn" data-id ="Todos">Todos</button>
-                <button class="filter-btn" data-id ="Urgente">Urgente</button>
-                <button class="filter-btn" data-id ="Diario">Diario</button>
-                <button class="filter-btn" data-id ="Semanal">Semanal</button>
-                -->
+                <button class="filter-btn" data-id ="Daily">Daily</button>
+                <button class="filter-btn" data-id ="To-do">To-do</button>
+                <button class="filter-btn" data-id ="Completadas">Completadas</button>
             </div>
 
-						<button id="cambiar_vista" class="cambiar_vista">
-              =
-            </button>
+						<button id="cambiar_vista" class="cambiar_vista">=</button>
             <!-- "Boton" de nuevas actividades -->
             <button id="nuevo-proyecto" class="nuevo-proyecto">
                 + Nuevo

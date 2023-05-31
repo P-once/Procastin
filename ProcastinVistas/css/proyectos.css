@@ -142,10 +142,18 @@ body {
 	margin-right: 1vh;
 }
 
+.proyecto {
+  text-align: left;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  
+  border-radius: 11px;
+}
+
 .boton {
     width: 20vw;
     height: 28vh;
-    border-radius: 11px;
 }
 
 .boton:hover .boton_2:hover{
@@ -153,38 +161,66 @@ body {
   }
 
 
-.proyecto {
-    text-align: left;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-}
-
-.completed {
-  -webkit-filter: grayscale(1);
-  display: hidden;
+.boton_2 {
+	width: 100%;
+	height: 28vh;
+	border-radius: 10px;
+	align-items: end;
+  background-color: #44444e;
 }
 
 .titulo {
-    font-size: 30px;
-    height: 20%;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
+  font-size: 30px;
+  height: 20%;
+
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 .titulo p {
   margin: 0 auto;
 }
 
+.titulo_1 {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.titulo_1 input {
+  position: absolute;
+  margin-top: 2vh;
+  margin-left: 1vw;
+}
+
+.titulo_2 {
+	font-size: 30px;
+	width: 100%;
+	height: 20%;
+  padding-left: 12%;
+}
+
+.titulo_2 input{
+  position: absolute;
+  
+  margin-top: 14vh;
+  margin-left: -5vw;
+}
+
 .descripcion {
 	height: 80%;
-	padding: 10px;
 	font-size: 20px;
-	border-bottom-right-radius: 10px;
+  
+  border-bottom-right-radius: 10px;
+}
+
+.descripcion_1 {
+  padding: 10px;
 	border-bottom-left-radius: 10px;
+}
+
+.descripcion_2 {
+	width: 90%;
 }
 
 .descripcion p {
@@ -192,37 +228,15 @@ body {
 	color: white;
 }
 
-.complete {
-  position: absolute;
-  margin-top: 2vh;
-  margin-left: 1vw;
+.completed {
+  -webkit-filter: grayscale(1);
+  display: hidden;
 }
+
 .delete {
   position: absolute;
 	margin-top: 2vh;
 	margin-left: 18vw;
-}
-
-.boton_2 {
-	width: 100%;
-	height: 28vh;
-	border-radius: 10px;
-	align-items: center;
-}
-
-.titulo_2 {
-	font-size: 30px;
-	width: 80%;
-	height: 20%;
-	text-align: center;
-	display: flex;
-	flex-direction: row;
-}
-
-.descripcion_2 {
-	height: 80%;
-	width: 80%;
-	font-size: 20px;
 }
 
 
