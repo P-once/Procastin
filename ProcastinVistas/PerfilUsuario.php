@@ -94,27 +94,21 @@ include("db.php");
     </div>
     <!--Tabs-->
     <div class="contenedor">
-        <div class="titulo">Secion de Tareas</div>
+        <div class="titulot">Secion de Tareas</div>
         <div id="pestanas">
             <ul id=lista>
-                <li id="pestana1"><a>Diarias</a></li>
-                <li id="pestana2"><a>Por hacer</a></li>
+                <li id="pestana1"><a class="filter-btn" data-id ="Daily">Diarias</a></li>
+                <li id="pestana2"><a class="filter-btn" data-id ="To-do">Por hacer</a></li>
             </ul>
         </div>
 
 
         <div id="contenidopestanas">
-            <div id="cpestana1" >
-            </div>
-            <div id="cpestana2" >
-            </div>
+        <div class="section-center"></div>
         </div>
 				
-				<div class="section-center"></div>
 				
-				<button class="filter-btn" data-id ="Daily">Daily</button>
-        <button class="filter-btn" data-id ="To-do">To-do</button>
-
+	
         <!--footer generico :)-->
 
     <footer >

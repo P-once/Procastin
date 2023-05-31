@@ -22,14 +22,14 @@ function displayMenuItems(menuItems) {
 
       if(item.Completado == 1){
         return `<div class="titulo">
-          <p name="nomTarea">${item.NomTarea}</p>
+          <p name="nomTarea">${item.NomTarea}  Dificultad: ${item.DifiTarea}<p>
           <div class="descripcion">
               <p>${item.DescTarea}</p>
           </div>
-        </div>`;
+        </div><hr>`;
       } else {
         return `<div class="titulo">
-        <p name="nomTarea">${item.NomTarea}</p>
+        <p name="nomTarea">${item.NomTarea}  Dificultad: ${item.DifiTarea}</p>
         <div class="descripcion">
             <p>${item.DescTarea}</p>
         </div>
