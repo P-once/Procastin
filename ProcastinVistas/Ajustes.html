@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/Ajustes.css">
+  
+
+</head>
+<body>
+    <!--tab-->
+    <div class="Contenedor">
+        <!--Botones tab-->
+        <div class="Nom-Tab">
+            <button id="Btn-uno">Configuracion</button>
+            <button id="Btn-dos">Perfil</button>
+            <a href="PerfilUsuario.php">Regresar</a>
+
+        </div>
+        <!--Contenido del tab-->
+        <div class="Cont-Tab">
+            <div id="Cont-uno">
+               <label for="">Cambiar de tema : </label><Hr>
+               <div class="tema">
+                    <label for="">Modo claro</label>
+                    <input type="radio" name="Tema-R" id="">
+                    <label for="">Modo oscuro</label>
+                    <input type="radio" name="Tema-R" id="">
+                </div>
+            </div>
+            <div id="Cont-dos">
+                <form action="" id="Form-Perfil">
+                    <div class="opc">
+                    <label>Cambiar nombre</label><br> 
+                    <input type="text" name="Nombre" id="Cam-Nombre"><Hr>  
+                    </div>
+                    <div class="opc">
+                    <label>Añadir descripcion</label><br> 
+                    <input type="text" name="descripcion" id="Agr-Desc"><Hr> 
+                    </div>
+                    <div class="opc">
+                    <label>Cambiar contraseña</label><br> 
+                    <input type="text" name="contra" id="Cam-Contra"><Hr> 
+                    </div>
+                    <input type="submit" id="submit">
+                </form>
+                
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <script src="js/Ajustes.js"></script>
+</body>
+</html>

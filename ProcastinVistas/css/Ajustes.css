@@ -1,0 +1,148 @@
+
+:root {
+    --color1: #32323E;
+    --color2: #40476D;
+    --color3: #1B9AAA;
+    --color4: #FFFCF1;
+    --color5: #F6BE00;
+}
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+body
+{
+    background-color: var(--color4);
+}
+
+.Contenedor
+{
+    position: absolute;
+    display: flex;
+    width: 80%;
+    height: 80vh;
+    background-color: var(--color1) ;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+}
+
+.Contenedor a
+{
+    font-size: larger;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    top: 90%;
+    left: 3%;
+}
+
+.Nom-Tab
+{
+    flex-basis: 20%;
+    background-color: var(--color2);
+
+}
+.Cont-Tab
+{
+    flex-basis: 80%;
+    background-color: #32323E;
+
+}
+
+.Nom-Tab button
+{
+    background-color: transparent;
+    border: 0;
+    margin: 5px;
+    width: 100%;
+    outline: none;
+    padding: 18px 30px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+#Btn-uno,#Btn-dos
+{
+    width: 100%;
+    height: auto;
+    color: #FFFCF1;
+    font-size: large;
+    font-weight: bolder;
+}
+#Cont-uno,#Cont-dos
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transform: translateY(100%);
+    color: black;
+    transition: 0.7s ;
+}
+#Form-Perfil
+{
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    background-color: var(--color3);
+    width: 30%;
+    height: 80%;
+    border-radius: 1%;
+    top: 10%;
+    left: 20%;
+}
+.opc
+{
+    position: relative ;
+    left: 20%;
+    width: auto;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
+#Form-Perfil label
+{
+    position:  relative; 
+    font-size: large;
+    font-weight: bold;
+    color: black;
+}
+#Form-Perfil input
+{
+    position:relative; 
+    margin: 5%;
+    width: 300px;
+    height: 30px;
+   
+}
+.tema
+{
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    font-weight: bold;
+
+}
+hr
+{
+    position: absolute;
+    margin-bottom: 30px;
+   
+    width: 70%;
+}
+
+#submit
+{
+    position: absolute;
+    left: 10%;
+    width: auto;
+}
+
+
