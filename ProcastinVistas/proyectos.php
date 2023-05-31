@@ -48,19 +48,24 @@
         <!-- Filter Buttons -->
         <div class="botones">
             <div class="btn-container">
-                <!--
                 <button class="filter-btn" data-id ="Todos">Todos</button>
-                <button class="filter-btn" data-id ="Urgente">Urgente</button>
-                <button class="filter-btn" data-id ="Diario">Diario</button>
-                <button class="filter-btn" data-id ="Semanal">Semanal</button>
-                -->
+                <button class="filter-btn" data-id ="Daily">Daily</button>
+                <button class="filter-btn" data-id ="To-do">To-do</button>
+                <button class="filter-btn" data-id ="Completadas">Completadas</button>
             </div>
 
+						<button id="cambiar_vista" class="cambiar_vista">=</button>
             <!-- "Boton" de nuevas actividades -->
             <button id="nuevo-proyecto" class="nuevo-proyecto">
                 + Nuevo
             </button>
     </div>
+
+		<form id="complete_form" action="proyectos.php" method="post" class="complete_form" style="display:none;">
+      <input type="text" name="titulo_hidden" id="titulo_hidden">
+			<input type="checkbox" id="completly_hidden" name="completly_hidden" value="1">
+			<input type="submit" name="complete_submit" id="complete_submit">
+    </form>
         
     <section id="section-center" class="section-center">
         <!-- Actividad ejemplo -->

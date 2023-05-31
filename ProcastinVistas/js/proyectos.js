@@ -7,6 +7,7 @@ var span = document.getElementsByClassName("close")[0];
 
 // Get the button that opens the modal
 var btn = document.getElementById('nuevo-proyecto');
+var vista = document.getElementById('cambiar_vista');
 
 //Preview items
 const menu = proyectos_usuario;
@@ -19,12 +20,15 @@ const container = document.querySelector('.btn-container');
 window.addEventListener('DOMContentLoaded', function() {
     displayMenuItems(menu);
 
-    displayMenuButtons();
+    //displayMenuButtons();
+
+		completedItems();
 });
 
 
 function displayMenuButtons () {
   if(JSON.stringify(menu) != 'null') {
+    /*
     const categories = menu.reduce(function(values, item) {
       if(!values.includes(item.TipoTarea)) {
         values.push(item.TipoTarea);
@@ -35,64 +39,91 @@ function displayMenuButtons () {
       return `<button class="filter-btn" data-id ="${categoria}">${categoria}</button>`
     }).join("");
     container.innerHTML = categoriaBtns;
-    const filterBtns = document.querySelectorAll('.filter-btn');
+    */
 
-    filterBtns.forEach(function(btn) {
-      btn.addEventListener('click', function(e) {
-        const category = e.currentTarget.dataset.id;
-    
-        if(category == 'Todos') {
-          displayMenuItems(menu);
-        }
-        else {
-          const menuCategory = menu.filter(function (menuItem) {
-            if(menuItem.TipoTarea == category) {
-              return menuItem;
-            }
-          });
-          displayMenuItems(menuCategory);
-        }
-      })
-    });
   }
 };
+const filterBtns = document.querySelectorAll('.filter-btn');
 
+filterBtns.forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    const category = e.currentTarget.dataset.id;
+
+    if(category == 'Todos') {
+      displayMenuItems(menu);
+    } 
+    else if(category == 'Completadas') {
+      const menuCategory = menu.filter(function (menuItem) {
+        if(menuItem.Completado == 1) {
+          return menuItem;
+        }
+      });
+      displayMenuItems(menuCategory);
+    }
+    else {
+      const menuCategory = menu.filter(function (menuItem) {
+        if(menuItem.TipoTarea == category) {
+          return menuItem;
+        }
+      });
+      displayMenuItems(menuCategory);
+    }
+  })
+});
 
 function completedItems() {
+  //console.log("completed");
   var divs = document.querySelectorAll('.proyecto');
   var contain = document.getElementById('section-center');
   
   var completes = [];
   
   divs.forEach(function(div, index) {
-    //console.log(div);
+    //console.log(div.classList);
     if(div.classList.contains('completed')) { 
       console.log("aaaa");
       completes.push(div);
       div.remove();
     }
   })
-  console.log(completes);
+  //console.log(completes);
   if(completes.length > 0) {
     completes.forEach(function(div) {
       contain.appendChild(div);
     })
   }
-  console.log(divs.length);
+  //console.log(divs.length);
+}
+
+function createProject(item, article_class, div1_class, div2_class, checkmark) {
+  return `<article class="proyecto ${article_class}" id="${item.NomTarea}">
+  <div class="titulo defaultT ${div1_class}">
+    <input type="checkbox" name="complete" value="1" class="complete" ${checkmark}>
+    <p name="nomTarea">${item.NomTarea}</p>
+  </div>
+  <div class="descripcion defaultD ${div2_class}">
+      <p>${item.DescTarea}</p>
+  </div>
+</article>`;
 }
 
 function displayMenuItems(menuItems) {
   if(JSON.stringify(menu) != 'null') {
     let displayMenu = menuItems.map(function(item) {
-      return `<article class="boton proyecto">
-        <div class="titulo defaultT">
-            <input type="checkbox" id="complete" name="complete" value="complete" class="complete">
-            <p>${item.NomTarea}</p>
-        </div>
-        <div class="descripcion defaultD">
-            <p>${item.DescTarea}</p>
-        </div>
-      </article>`;
+      console.log(item.Completado);
+      if(vista.innerHTML == "=") {
+        if(item.Completado == 1){
+          return createProject(item, 'boton completed', 'titulo_1', 'descripcion_1', 'checked')
+        } else {
+          return createProject(item, 'boton', 'titulo_1', 'descripcion_1', '');
+        }
+      } else {
+        if(item.Completado == 1){
+          return createProject(item, 'boton_2 completed', 'titulo_2', 'descripcion_2', 'checked')
+        } else {
+          return createProject(item, 'boton_2', 'titulo_2', 'descripcion_2', '');
+        }
+      }
     })
     displayMenu = displayMenu.join("");
     sectionCenter.innerHTML = displayMenu;
@@ -127,16 +158,29 @@ function displayMenuItems(menuItems) {
     const checks = document.querySelectorAll('.complete')
     checks.forEach(function(check) {
       check.addEventListener('change', function(e) {
-        console.log(check.parentElement.parentElement.className);
+        console.log(check.parentElement.parentElement);
         if (this.checked) {
           check.parentElement.parentElement.classList.add("completed");
+					check.value = 1;
+
+					document.getElementById('completly_hidden').checked = true;
+					document.getElementById('titulo_hidden').value = check.parentElement.lastElementChild.innerHTML;
+          console.log(check.parentElement.lastElementChild.innerHTML)
+
+          //console.log(check.parentElement.parentElement.id);
         } else {
           check.parentElement.parentElement.classList.remove("completed");
+					document.getElementById('completly_hidden').checked = false;
+					document.getElementById('titulo_hidden').value = check.parentElement.lastElementChild.innerHTML;
         }
         console.log(check.parentElement.parentElement.className);
-        completedItems();
+        //completedItems();
+				//document.getElementById("complete_form").submit;
+        document.getElementById("complete_submit").click();
       })
     })
+
+		completedItems();
   }
 }
 
@@ -149,6 +193,35 @@ function displayMenuItems(menuItems) {
   boton_proyectos.innerHTML = "Crear";
   boton_proyectos.name = 'crear_proyecto';
   document.getElementById('titulo-tarea').readOnly = false;
+}
+
+vista.onclick = function() {
+  const actividadBtns = document.querySelectorAll('.proyecto');
+  if(vista.innerHTML == "=") {
+    actividadBtns.forEach(function(btn) {
+      div1 = btn.firstElementChild;
+      div2 = btn.lastElementChild;
+      btn.classList.add('boton_2');
+      btn.classList.remove('boton');
+      div1.classList.add('titulo_2');
+      div1.classList.remove('titulo_1');
+      div2.classList.add('descripcion_2');
+      div2.classList.remove('descripcion_1');
+      vista.innerHTML = "□";
+    })
+  } else {
+    actividadBtns.forEach(function(btn) {
+      div1 = btn.firstElementChild;
+      div2 = btn.lastElementChild;
+      btn.classList.add('boton');
+      btn.classList.remove('boton_2');
+      div1.classList.add('titulo_1');
+      div1.classList.remove('titulo_2');
+      div2.classList.add('descripcion_1');
+      div2.classList.remove('descripcion_2');
+      vista.innerHTML = "=";
+    })
+  }
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -174,7 +247,7 @@ const nuevo = document.querySelector('.crear-proyecto');
 //Crear nueva tarea
 nuevo.addEventListener('click', function()
 {       ///Boton deberia usar 'submit'
-  if(document.getElementById('titulo-tarea').value != "") {
+  if(document.getElementById('titulo-tarea').value != "" && nuevo.name != "update_proyecto") {
     let titulo = document.getElementById('titulo-tarea').value;
     let descripcion = document.getElementById('descripcion-tarea').value;
     let tipo = document.querySelector('input[name="type"]:checked').value;
